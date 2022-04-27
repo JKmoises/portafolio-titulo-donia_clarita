@@ -1,7 +1,7 @@
 <?php
 
 //* Conectar a la BD con PDO
-$db = new PDO("oci:dbname={$_ENV['DB_HOST']};charset=utf8",$_ENV['DB_USER'],$_ENV['DB_PASS']);
+$db = new PDO("oci:dbname=localhost;charset=utf8",'ADMIN','ADMIN');
 // debuguear($_ENV);
 
 if (!$db) {
