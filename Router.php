@@ -22,8 +22,9 @@ class Router{
 
     // * Nota: En el servidor apache no sirve PATH_INFO para detectar las rutas sino que sirve REQUEST_URI
     $urlActual = $_SERVER["PATH_INFO"] ?? '/';  
-    # Si exista una ruta vacia se agrega '/' sino se agrega la ruta a la que naveguemos
-    $urlActual = ($_SERVER["REQUEST_URI"] === '') ? '/' : $_SERVER["REQUEST_URI"];  
+
+    # Si existe una ruta vacia se agrega '/' sino se agrega la ruta a la que naveguemos
+    // $urlActual = ($_SERVER["REQUEST_URI"] === '') ? '/' : $_SERVER["REQUEST_URI"];  
     $metodo = $_SERVER["REQUEST_METHOD"]; # Por defecto es GET
     // debuguear($urlActual);
 
