@@ -5,3 +5,7 @@ Proyecto MVC desarrollado en __PHP, OracleSQL, SASS, JS y Gulp__. Este es un sit
 - Comandos para correr el proyecto en local:
   - `npm install`
   - `composer update`
+
+- Comandos para para levantar servidor local y usar __Gulp__ para automatizar tareas:
+  - `php -S localhost:3000` Este comando se ejecuta en la carpeta ==public/==, lo que hace es servir la app en el puerto 3000.
+  - `gulp` Este comando permite automatizar tareas, como minificar código __CSS__ y __JS__, compilar __SASS__ a __CSS__, aligerar imágenes, generar la carpeta ==build/==      para producción, etc. 
