@@ -1,0 +1,29 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.boton{
+  @include m.boton(v.$firstColor,v.$whiteColor,v.$firstAlphaColor);
+}
+
+/* Componentes boton animacion icono desplazado */
+.boton-crear{
+  @include m.botonCrud(v.$firstColor, v.$whiteColor,v.$whiteColor,v.$secondColor);
+}
+
+.boton-actualizar{
+  @include m.botonCrud(v.$secondColor, v.$whiteColor,v.$textColor,v.$whiteColor);
+}
+
+/* Componente boton volver con flechita */
+.boton-volver{
+  @include m.botonVolver(v.$thirdColor,v.$whiteColor);
+}
+
+.boton-actualizar-2{
+  @include m.botonCrud(v.$greenColor, v.$whiteColor,v.$textColor,v.$whiteColor);
+}
+
+.boton-eliminar{
+  @include m.botonCrud(v.$redColor, v.$whiteColor,v.$textColor,v.$whiteColor);
+}
+ 

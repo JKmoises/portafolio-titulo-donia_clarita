@@ -1,0 +1,26 @@
+@use 'base/variables' as v;
+
+.formulario-crud{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  column-gap: calc(v.$separacion / 2);
+  padding: calc(v.$separacion / 2);
+
+  label{
+    font-weight: v.$bold;
+    text-transform: uppercase;
+    font-size: initial;
+  }
+
+  input,
+  select,
+  textarea{
+    border: thin solid v.$grayColor;
+  }
+
+  .campo:last-of-type,
+  .campo:nth-child(5){
+    grid-column: span 2;
+  }
+
+}

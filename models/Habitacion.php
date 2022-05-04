@@ -24,7 +24,7 @@ class Habitacion extends ActiveRecord{
   public function __construct($args = []){
     $this->id = $args['id'] ?? null;
     $this->titulo = $args['titulo'] ?? '';
-    $this->estado = $args['estado'] ?? '';
+    $this->estado = $args['estado'] ?? 'Disponible';
     $this->precio = $args['precio'] ?? '';
     $this->descripcion = $args['descripcion'] ?? '';
     $this->tipo_cama = $args['tipo_cama'] ?? '';
@@ -45,7 +45,7 @@ class Habitacion extends ActiveRecord{
       self::$alertas['error'][] = 'El precio es obligatorio';
     }
     
-    if (strlen($this->descripcion) > 100) { 
+    if (!$this->descripcion || strlen($this->descripcion) > 100) { 
       self::$alertas['error'][] = 'La descripción es obligatoria y debe tener solo hasta 100 caracteres';
     }
 

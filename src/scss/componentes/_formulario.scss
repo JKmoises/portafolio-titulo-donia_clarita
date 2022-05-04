@@ -1,0 +1,32 @@
+@use 'base/variables' as v;
+
+.fomulario{ 
+  width: 100%;
+}
+
+.campo{
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  label,
+  input{
+    flex: 0 0 12rem;
+    font-size: 2rem;
+  }
+  
+  input,
+  select,
+  textarea{
+    flex: 1;
+    padding: calc(v.$separacion / 4);
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 2rem;
+  }
+
+
+  
+}

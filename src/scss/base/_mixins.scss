@@ -1,0 +1,138 @@
+@use "variables" as v;
+
+/** Media Queries **/
+@mixin telefono {
+  @media (min-width: v.$telefono) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: v.$tablet) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: v.$desktop) {
+    @content;
+  }
+}
+
+@mixin boton($bgColor, $colorTexto,$bgAlphaColor) {
+  background-color: $bgColor;
+  padding: 1.5rem 4rem;
+  color: $colorTexto;
+  font-size: 2rem;
+  display: inline-block;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  width: 100%;
+  margin: 2rem 0 5rem;
+
+  @include tablet {
+    width: auto;
+  }
+  
+  &:hover {
+    background-color: $bgAlphaColor;
+    cursor: pointer;
+  }
+}
+
+@mixin botonCrud($bgColor, $colorTexto,$colorIcono,$bgColorIcono) {
+  background-color: $bgColor;
+  color: $colorTexto;
+  padding: 1rem 0;
+  font-size: 1.7rem;
+  border: none;
+  border-radius: 0.7em;
+  letter-spacing: 0.08em;
+  position: relative;
+  display: inline;
+  align-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-left: 2.8em;
+  padding-right: 0.9em;
+  width: 60%;
+
+  .icon {
+    background-color: $bgColorIcono;
+    height: 2em;
+    width: 2em;
+    border-radius: 2em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0.4em;
+    padding: .5rem;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+   
+  path{
+    margin-left: 0.4em;
+    transition: all 0.5s;
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: $colorIcono;
+  }
+  
+  &:hover .icon svg {
+    transform: rotate(360deg);
+  }
+  
+  &:hover .icon {
+    width: calc(100% - 0.9em);
+    border-radius: 0.5em;
+  }
+}
+
+
+@mixin botonVolver($bgColor,$texColor){
+  display: flex;
+  height: 3em;
+  width: 12rem;
+  margin: calc(v.$separacion / 2) 0;
+  margin-left: v.$separacion / 4;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: $bgColor;
+  color: $texColor;
+  border-radius: .3rem;
+  letter-spacing: .1rem;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  border: none;
+  
+   
+  & > svg {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-right: .5rem;
+    margin-left: .5rem;
+    font-size: 2rem;
+    fill: $texColor;
+    transition: all 0.4s ease-in;
+  }
+   
+  &:hover > svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+  }
+   
+  &:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin grid($columnas, $espaciado) {
+  display: grid;
+  gap: $espaciado;
+  grid-template-columns: repeat($columnas, 1fr);
+}

@@ -1,0 +1,41 @@
+@use 'base/variables' as v;
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: v.$firstColor;
+  height: 6.5rem;
+  padding: 2rem;
+  color: v.$whiteColor;
+  grid-area: header;
+
+}
+
+.logo{
+  
+  h1{
+    text-transform: uppercase;
+    font-weight: v.$delgada;
+    margin: 0;
+
+    span{
+      font-weight: v.$bold;
+    }
+  }
+}
+
+.barra{
+  display: flex;
+  align-items: center;
+  gap: v.$separacion;
+  font-size: 2rem;
+
+  a{
+    font-weight: v.$bold;
+
+    &:hover{
+      color: v.$whiteColor;
+    }
+  }
+}

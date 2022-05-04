@@ -1,0 +1,19 @@
+@use 'base/variables' as v;
+
+.panel-admin{
+  display: grid;
+  grid-template-columns: 15% 85%;
+
+  grid-template-areas: 
+  "header header"
+  "navegacion panel";
+
+  h2{
+    color: v.$titleColor;
+  }
+
+  .nro-habitacion{
+    padding-left: calc(v.$separacion / 2);
+    text-transform: uppercase;
+  }
+}

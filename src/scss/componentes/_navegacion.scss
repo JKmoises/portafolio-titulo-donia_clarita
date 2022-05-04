@@ -1,0 +1,58 @@
+@use 'base/variables' as v;
+
+.menu{
+  background-color: v.$secondColor;
+  color: v.$whiteColor;
+  min-height: 100vh;
+
+  p{
+    background-color: v.$titleColor;
+    padding: 1rem;
+    text-align:center;
+    font-weight: v.$bold;
+  }
+
+  p,
+  summary{
+    font-size: 1.5rem;
+  }
+}
+
+
+.navegacion{
+
+  details{
+    padding: 1rem 2rem;
+  }
+
+  summary{
+    display: flex;
+    align-items: center;
+    gap: calc(v.$separacion / 2);
+    transition: opacity 0.5s ease-out;
+
+    &:hover{
+      opacity: .7;
+      cursor: pointer;
+    }
+  }
+}
+
+.opciones{
+  display: flex;
+  flex-direction: column;
+
+  a{
+    display: inherit;
+    align-items: center;
+    gap: calc(v.$separacion / 2);
+    color: v.$whiteColor;
+    padding: .5rem;
+    margin-left: 1rem;
+    transition: color 0.5s ease-out;
+
+    &:hover{
+      color: v.$linkColor;
+    }
+  }
+}

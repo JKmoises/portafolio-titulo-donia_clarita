@@ -1,0 +1,57 @@
+@use 'base/variables' as v;
+
+table.tabla {
+  margin-top: 4rem;
+  width: 100%;
+  border-spacing: 0;
+
+  thead {
+
+    th {
+      color: v.$whiteColor;
+      padding: 2rem;
+      text-transform: uppercase;
+      font-weight: v.$delgada;
+      font-size: 1.8rem;
+    }
+    
+  }
+
+  tbody {
+    text-align: center;
+
+    tr,
+    td{
+      border-bottom: thin solid v.$grayColor;
+    }
+
+
+    td{
+      padding: 1rem;
+      padding-right: 0;
+      font-size: 1.9rem;
+    }
+
+  }
+
+    
+
+  a,
+  button{
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+.tabla-habitaciones{
+  thead{
+    background-color: v.$secondAlphaColor;
+  }
+}
+
+.tabla-usuarios{
+  thead{
+    background-color: v.$firstAlphaColor;
+  }
+}
