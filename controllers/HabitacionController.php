@@ -35,7 +35,7 @@ class HabitacionController{
 
     isAuth(); # Protegiendo esta ruta para que sea accesible solo a los loagueados
 
-    $estados = ['Asignada','Disponible','Limpieza','Mantenimiento'];
+    $estados = ['Disponible','Ocupada','Reservada','Mantenimiento'];
     $camas = ['Individual','Doble','KingSize','QueenSize'];
 
      //* Instanciando objeto de la clase Propiedades para tener sus atributos con valores por defecto

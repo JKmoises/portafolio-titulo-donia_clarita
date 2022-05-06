@@ -1,0 +1,42 @@
+@use 'base/variables' as v;
+
+.modal{
+  width: 40% !important;
+  padding: calc(v.$separacion / 2) !important;
+  
+
+  .modal-icon{
+    width: 6rem !important;
+    height: 6rem !important;
+  }
+
+  .modal-title{
+    color: v.$secondColor;
+  }
+
+  .modal-warning{
+    font-size: 1.5rem;
+    color: v.$textColor;
+  }
+
+
+}
+.modal-btns{
+  width: 100%;
+  gap: 2rem;
+
+  .modal-btn-confirm,
+  .modal-btn-cancel{
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem !important;
+    font-weight: 700;
+  }
+
+  .modal-btn-confirm{
+    background-color: v.$firstColor !important;
+  }
+
+  .modal-btn-cancel{
+    background-color: v.$thirdColor !important;
+  }
+}
