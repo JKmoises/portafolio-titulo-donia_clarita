@@ -60,6 +60,11 @@ img {
   margin-top: calc(v.$separacion / 4);
 }
 
+.deshabilitado{
+  pointer-events: none;
+  opacity: .5;
+}
+
 
 
 

@@ -37,16 +37,22 @@ class LoginController{
             # Guardando true en la sesión para indicar que se autenticó un usuario en
             $_SESSION['login'] = true; 
             $_SESSION['rol'] = $usuario->rol ?? null; # Guardando rol en la sesión sino null
+            // debuguear($_SESSION);
             
             //* Redireccionamiento
             if ($usuario->rol === "Admin") { # Si el usuario autenticado es admin...
-              // debuguear($_SESSION);
-              header('Location: /usuarios'); # Redireccionando a la vista del panel de admin
-            }else{ # Si el usuario autenticado no es admin...
-              header('Location: /habitaciones'); # Redireccionando a la vista de citas
+              header('Location: /usuarios'); 
+            }else if($usuario->rol === "Cliente"){ 
+              header('Location: /habitaciones/reservar'); 
+            }else if ($usuario->rol === "Empleado") {
+              header('Location: /habitaciones'); 
+            }else if($usuario->rol === "Proveedor"){
+              header('Location: /habitaciones');
+            }else{
+              header('Location: /');
             }
-
           } 
+          
         }else{ # Si el usuario no está registrado
           Usuario::setAlerta('error','Usuario no encontrado');
         }

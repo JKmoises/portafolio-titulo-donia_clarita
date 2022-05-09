@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded',iniciarApp);
 
 function iniciarApp(){
-  mostrarConfirmacion();
+  mostrarConfirmacion(); //? Muestra Modal de confirmacion 
 } 
+
 
 function mostrarConfirmacion(){
   const $formularioEliminar = document.querySelectorAll('.formulario-eliminar');
-  console.log($formularioEliminar);
 
   $formularioEliminar.forEach(formulario => {
     formulario.addEventListener('submit',e => {

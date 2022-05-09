@@ -6,15 +6,11 @@
     </summary>
 
     <article class="opciones">
-      <a href="/habitaciones">
-        <img src="../build/img/read-icon.svg" alt="icono listar">
-        Listar
+      <a href="/habitaciones/reservar">
+        <img src="../build/img/reserve-icon.svg" alt="icono listar">
+        Reservar
       </a>
 
-      <a href="/habitaciones/crear">
-        <img src="../build/img/create-icon.svg" alt="icono crear">
-        Registrar
-      </a>
     </article>
   </details>
 
