@@ -3,7 +3,7 @@
 
   <?php include_once __DIR__ . "/../templates/navegacion.php"; ?>
 
-  <section class="contenedor section">
+  <section class="section">
     <h2 class="nombre pagina">Actualizar Rol de Usuario</h2>
 
     <?php include_once __DIR__ . "/../templates/boton-volver.php"; ?>

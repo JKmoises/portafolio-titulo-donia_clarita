@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\HabitacionController;
 use Controllers\LoginController;
+use Controllers\ReservasController;
 use Controllers\UsuarioController;
 use MVC\Router;
 
@@ -38,6 +39,8 @@ $router->get('/habitaciones/actualizar',[HabitacionController::class,'actualizar
 $router->post('/habitaciones/actualizar',[HabitacionController::class,'actualizar']); 
 $router->post('/habitaciones/eliminar',[HabitacionController::class,'eliminar']);
 
+//* Reservar Habitaciones
+$router->get('/habitaciones/reservar',[ReservasController::class,'listar']); 
 
 
 //* Usuarios Registrados 

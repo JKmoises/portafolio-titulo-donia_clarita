@@ -10,7 +10,7 @@
 
   <meta name="description" content="Hola bienvenid@ al Hostal Doña Clarita, 
   Servicio de hospedaje y comedor ideal para empresas.">
-  <link rel="shortcut icon" href="../build/img/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../build/img/bed-icon.svg" type="image/x-icon">
 
 </head>
 

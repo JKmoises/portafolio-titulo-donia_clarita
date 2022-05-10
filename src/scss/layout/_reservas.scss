@@ -1,0 +1,83 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.habitaciones{
+  @include m.grid(4,2rem);
+}
+
+.habitacion{
+  @include m.grid(2,0);
+  row-gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  color: v.$whiteColor;
+  padding-top: 1.5rem;
+
+  &:hover{
+    opacity: .8;
+  }
+  
+  &.disponible{
+    background-color: v.$greenColor;
+  }
+
+  &.ocupada{
+    background-color: v.$redColor;
+  }
+
+  &.reservada{
+    background-color: v.$blueColor;
+  }
+
+  &.mantenimiento{
+    background-color: v.$yellowColor;
+  }
+
+  .icono{
+    width: calc(v.$separacion + 1rem);
+  }
+
+  .numero{
+    font-size: calc(v.$separacion / 2);
+    font-weight: v.$bold;
+  }
+
+  
+  .estado{
+    text-transform: uppercase;
+    padding: .5rem 0;
+    
+  }
+
+  
+  .estado,
+  hr{
+    width: 100%;
+    grid-column: span 2;
+  }
+}
+
+.disponible{
+  .estado{
+    background-color: darken(v.$greenColor, 10%);
+  }
+}
+
+.ocupada{
+  .estado{
+    background-color: darken(v.$redColor, 10%);
+  }
+}
+
+.reservada{
+  .estado{
+    background-color: darken(v.$blueColor, 10%);
+  }
+}
+
+.mantenimiento{
+  .estado{
+    background-color: darken(v.$yellowColor, 10%);
+  }
+}
+
