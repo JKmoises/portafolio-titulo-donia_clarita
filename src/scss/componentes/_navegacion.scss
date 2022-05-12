@@ -4,12 +4,23 @@
   background-color: v.$secondColor;
   color: v.$whiteColor;
   min-height: 100vh;
+  width: 100%;
 
-  p{
+  button{
+    color: inherit;
     background-color: v.$titleColor;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     text-align:center;
     font-weight: v.$bold;
+    width: 100%;
+    border: none;
+    transition: all .5s ease-in-out;
+
+    &:hover{
+      cursor: pointer;
+      background-color: darken(v.$titleColor,10%);
+      color: lighten(v.$whiteColor,10%);
+    }
   }
 }
 
@@ -18,6 +29,18 @@
 
   details{
     padding: 1rem 2rem;
+
+    &.active{
+      padding: 0;
+      margin: 1rem 0;
+      
+      summary{
+        transition: all .7s ease-in-out;
+        padding-left: 0;
+        justify-content: center;
+
+      }
+    }
   }
 
   summary{

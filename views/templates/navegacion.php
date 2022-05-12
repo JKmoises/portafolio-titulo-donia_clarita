@@ -1,6 +1,6 @@
 
 <aside class="menu">
-  <p>Menú de Administración</p>
+  <button type="button" class="boton-menu">Menú de Administración</button>
   
   <?php 
     if ($rol === 'Admin') {
@@ -14,3 +14,6 @@
     }
   ?>
 </aside>
+<?php 
+  $script = '<script src="/build/js/app.js"></script>';  # Cargando JS en esta vista
+?>
