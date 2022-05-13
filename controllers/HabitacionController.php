@@ -40,10 +40,7 @@ class HabitacionController{
 
      //* Instanciando objeto de la clase Propiedades para tener sus atributos con valores por defecto
      $habitacion = new Habitacion; # Ahora el objeto existe antes de que se envíe el formulario
-     $huespedes = Huesped::all('rut_huesped'); # Consulta para obtener todos los vendedores
-      // debuguear($huespedes);
 
- 
      //* Arreglo con mensajes de alertas
      $alertas = Habitacion::getAlertas();  
 
@@ -73,7 +70,6 @@ class HabitacionController{
       'nombre' => $_SESSION['nombre'],
       'rol' => $_SESSION['rol'],
       'habitacion' => $habitacion,
-      'huespedes' => $huespedes,
       'alertas' => $alertas,
       'rutaVista' => '/habitaciones',
       'estados' => $estados,
@@ -97,10 +93,6 @@ class HabitacionController{
     //* Obtener los datos de la propiedad segun id
     $habitacion = Habitacion::find($id); # Objeto según id de la Clase Habitacion
     // debuguear($habitacion);
-
-    //* Consulta para obtener todos los huespedes
-    $huespedes = Huesped::all('rut_huesped');
-    // debuguear($huespedes); 
 
     //* Arreglo con mensajes de alertas
     $alertas = Habitacion::getAlertas();
@@ -131,7 +123,6 @@ class HabitacionController{
       'nombre' => $_SESSION['nombre'],
       'rol' => $_SESSION['rol'],
       'habitacion' => $habitacion,
-      'huespedes' => $huespedes,
       'alertas' => $alertas,
       'rutaVista' => '/habitaciones',
       'estados' => $estados,

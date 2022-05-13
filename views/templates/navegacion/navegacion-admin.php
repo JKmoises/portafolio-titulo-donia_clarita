@@ -59,12 +59,12 @@
     </summary>
 
     <article class="opciones">
-      <a href="#">
+      <a href="/huespedes">
         <img src="../build/img/read-icon.svg" alt="icono listar">
         Listar
       </a>
 
-      <a href="#">
+      <a href="/huespedes/crear">
         <img src="../build/img/create-icon.svg" alt="icono crear">
         Registrar
       </a>
@@ -79,12 +79,12 @@
     </summary>
 
     <article class="opciones">
-      <a href="#">
+      <a href="/clientes">
         <img src="../build/img/read-icon.svg" alt="icono listar">
         Listar
       </a>
 
-      <a href="#">
+      <a href="/clientes/crear">
         <img src="../build/img/create-icon.svg" alt="icono crear">
         Registrar
       </a>

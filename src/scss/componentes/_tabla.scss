@@ -44,6 +44,12 @@ table.tabla {
   }
 }
 
+.tabla-clientes{
+  thead{
+    background-color: v.$thirdAlphaColor;
+  }
+}
+
 .tabla-habitaciones{
   thead{
     background-color: v.$secondAlphaColor;

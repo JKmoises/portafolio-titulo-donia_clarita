@@ -2,7 +2,9 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\ClienteController;
 use Controllers\HabitacionController;
+use Controllers\HuespedController;
 use Controllers\LoginController;
 use Controllers\ReservasController;
 use Controllers\UsuarioController;
@@ -29,6 +31,22 @@ $router->post('/crear-cuenta',[LoginController::class,'crear']);
 $router->get('/confirmar-cuenta',[LoginController::class,'confirmar']);
 $router->get('/mensaje',[LoginController::class,'mensaje']);
 
+
+//* Clientes 
+$router->get('/clientes',[ClienteController::class,'listar']); 
+$router->get('/clientes/crear',[ClienteController::class,'crear']); 
+$router->post('/clientes/crear',[ClienteController::class,'crear']); 
+$router->get('/clientes/actualizar',[ClienteController::class,'actualizar']); 
+$router->post('/clientes/actualizar',[ClienteController::class,'actualizar']); 
+$router->post('/clientes/eliminar',[ClienteController::class,'eliminar']);
+
+//* Huéspedes 
+$router->get('/huespedes',[HuespedController::class,'listar']); 
+$router->get('/huespedes/crear',[HuespedController::class,'crear']); 
+$router->post('/huespedes/crear',[HuespedController::class,'crear']); 
+$router->get('/huespedes/actualizar',[HuespedController::class,'actualizar']); 
+$router->post('/huespedes/actualizar',[HuespedController::class,'actualizar']); 
+$router->post('/huespedes/eliminar',[HuespedController::class,'eliminar']);
 
 
 //* Habitaciones
