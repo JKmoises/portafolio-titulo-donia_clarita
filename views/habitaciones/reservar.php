@@ -22,8 +22,9 @@
         ?>
         <a href="#" class="habitacion <?php echo $estadoClass; ?>">
           <img class="icono" src="/build/img/bed-icon.svg" alt="Cama">
-          <span class="numero"><?php echo $habitacion->id; ?></span>
+          <span class="numero">Nro. <?php echo $habitacion->id; ?></span>
           <hr>
+          <p class="precio text-center">$<?php echo $habitacion->precio; ?> - <?php echo $habitacion->titulo; ?></p>
           <p class="estado text-center"><?php echo $habitacion->estado; ?></p>
         </a>
       <?php endforeach; ?>

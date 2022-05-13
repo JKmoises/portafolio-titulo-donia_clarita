@@ -9,7 +9,7 @@
 <div class="campo">
   <label>Estado:</label>
   <select id="estado" name="habitacion[estado]">
-    <option selected>-- Seleccione --</option>
+    <option selected value="">-- Seleccione --</option>
     <?php foreach($estados as $estado): ?>
       <option  <?php echo s($habitacion->estado === $estado) ? 'selected' : ''; ?>
         value="<?php echo s($estado); ?>">
@@ -43,17 +43,4 @@
   <textarea id="descripcion" name="habitacion[descripcion]" rows="10" placeholder="Ingrese una Descripcion"><?php echo s($habitacion->descripcion); ?></textarea>
 </div>
 
-<div class="campo">
-  <label>Huésped</label>
-
-  <select name="habitacion[huesped_id]" id="huesped">
-    <option selected value="">-- Seleccione --</option>
-    <?php foreach($huespedes as $huesped): ?>
-      <option  <?php echo ($habitacion->huesped_id === $huesped->rut_huesped) ? 'selected' : ''; ?>
-        value="<?php echo s($huesped->rut_huesped); ?>">
-        <?php echo s($huesped->nombre) . " " . s($huesped->apellido); ?>
-      </option>
-    <?php endforeach; ?>
-  </select>
-</div>
 

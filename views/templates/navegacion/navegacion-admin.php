@@ -8,7 +8,7 @@
     <article class="opciones">
       <a href="#">
         <img src="../build/img/statistics-icon.svg" alt="icono estadísticas">
-        Estadísticas
+        Informes
       </a>
     </article>
   </details>

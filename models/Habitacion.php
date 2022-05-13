@@ -28,7 +28,7 @@ class Habitacion extends ActiveRecord{
     $this->precio = $args['precio'] ?? '';
     $this->descripcion = $args['descripcion'] ?? '';
     $this->tipo_cama = $args['tipo_cama'] ?? '';
-    $this->huesped_id = $args['huesped_id'] ?? '';
+    $this->huesped_id = $args['huesped_id'] ?? null ;
   }
 
   // TODO: Validando los campos para insertar o actualizar habitaion
@@ -52,12 +52,6 @@ class Habitacion extends ActiveRecord{
     if (!$this->tipo_cama) { 
       self::$alertas['error'][] = 'Debes añadir un tipo de cama de habitación';
     }
-
-
-    if (!$this->huesped_id) { 
-      self::$alertas['error'][] = 'Elige un Huesped';
-    }
-
 
     return self::$alertas;
   }

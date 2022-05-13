@@ -3,7 +3,7 @@
 
   <?php include_once __DIR__ . "/../templates/navegacion.php"; ?>
 
-  <section class="section">
+  <section class="section p-t-0">
     <h2 class="nombre-pagina">Habitaciones</h2>
 
     <?php 
@@ -41,7 +41,7 @@
             <td><?php echo $habitacion->tipo_cama; ?></td>
             <td><?php echo $habitacion->descripcion; ?></td>
             <td>
-              <form method="POST" class="w-100" action="/habitaciones/eliminar">
+              <form method="POST" class="formulario-eliminar w-100" action="/habitaciones/eliminar">
                 <!-- entrada de formulario oculta para guardar id de cada habitacion -->
                 <input type="hidden" name="id" value="<?php echo $habitacion->id; ?>">
                 <!-- entrada de formulario oculta para identificar id de habitacion -->

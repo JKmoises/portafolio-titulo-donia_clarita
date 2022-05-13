@@ -42,6 +42,10 @@
     font-weight: v.$bold;
   }
 
+  .precio{
+    font-weight: v.$delgada;
+  }
+
   
   .estado{
     text-transform: uppercase;
@@ -49,7 +53,7 @@
     
   }
 
-  
+  .precio,
   .estado,
   hr{
     width: 100%;

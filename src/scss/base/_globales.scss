@@ -43,6 +43,7 @@ img {
 
 .section {
   padding: 2rem 1rem;
+  grid-column: 2 / 3;
 }
 
 .container {
@@ -52,7 +53,7 @@ img {
 }
 
 .none {
-  display: none;
+  display: none !important;
 }
 
 .text-top{

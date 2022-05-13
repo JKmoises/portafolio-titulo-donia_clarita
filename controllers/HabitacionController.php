@@ -87,7 +87,7 @@ class HabitacionController{
 
     isAuth(); # Protegiendo esta ruta para que sea accesible solo a los loagueados
 
-    $estados = ['Asignada','Disponible','Limpieza','Mantenimiento'];
+    $estados = ['Disponible','Ocupada','Reservada','Mantenimiento'];
     $camas = ['Individual','Doble','KingSize','QueenSize'];
     
     //*  Retornando id del registro a actualizar si no existe se redirecciona a /habitaciones

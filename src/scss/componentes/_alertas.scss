@@ -10,6 +10,9 @@
   text-align: center;
   font-weight: v.$bold;
   text-transform: uppercase;
+  opacity: 1;
+  visibility: visible;
+  transition: all 1s ease-out;
 
   &.error{
     background-color: v.$redColor;
@@ -17,5 +20,10 @@
   
   &.exito{
     background-color: v.$greenColor;
+  }
+
+  &.active{
+    opacity: 0;
+    visibility: hidden;
   }
 }

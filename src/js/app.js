@@ -1,20 +1,39 @@
 document.addEventListener('DOMContentLoaded',iniciarApp);
 
+
+
 function iniciarApp(){
-  mostrarConfirmacion(); //? Muestra Modal de confirmacion 
+  quitarAlerta(); //? Quita una alerta despues de unos segundos
+  mostrarConfirmacionEliminar(); //? Muestra Modal de confirmacion 
   colapsarMenu(); //? Colapsa el menu de navegación
 } 
 
+function quitarAlerta(){
+  const $alerta = document.querySelector('.alerta');
+  
+  if (document.body.contains($alerta)) {
+    setTimeout(() => {
+      $alerta.classList.add('active');
+    }, 4000);
 
-function mostrarConfirmacion(){
+    setTimeout(() => {
+      $alerta.remove();
+    }, 5000);
+  }
+}
+
+
+function mostrarConfirmacionEliminar(){
   const $formularioEliminar = document.querySelectorAll('.formulario-eliminar');
+  
+  if (location.pathname === '/usuarios') {
+    mostrarConfirmacion($formularioEliminar,'¿Estas seguro que quieres eliminar un usuario?');
+  }else if (location.pathname === '/habitaciones') {
+    mostrarConfirmacion($formularioEliminar,'¿Estas seguro que quieres eliminar una habitación?');
+  }
 
-  $formularioEliminar.forEach(formulario => {
-    formulario.addEventListener('submit',e => {
-      e.preventDefault();
-      modalConfirmacion(e.target,'¿Estas seguro que quieres eliminar un usuario?');
-    });
-  });
+  
+
 }
 
 function colapsarMenu(){
@@ -26,7 +45,7 @@ function colapsarMenu(){
   hoverBtnMenu($btnMenu,'&larr;','Menú de Administración'); 
   
   $btnMenu.addEventListener('click',e => {
-    $panelAdmin.style.gridTemplateColumns = '10% 90%';
+    $panelAdmin.style.gridTemplateColumns = '8% 92%';
     
     $opcionesMenu.forEach(($opcionMenu,i) => {
       textoOpciones = [...textoOpciones,$opcionMenu.lastChild.textContent];
@@ -72,8 +91,17 @@ function hoverBtnMenu($elemento,textButtonHover,textButton){
   });
 }
 
+function mostrarConfirmacion($formDelete,textConfirm){
+  $formDelete.forEach(formulario => {
+    formulario.addEventListener('submit',e => {
+      e.preventDefault();
+      modalConfirmacion(e.target,textConfirm);
+    });
+  });
+}
 
-function modalConfirmacion(elemento,title){
+
+function modalConfirmacion(formDelete,title){
   Swal.fire({
     title,
     text: "¡No podrás revertir esto!",
@@ -94,7 +122,7 @@ function modalConfirmacion(elemento,title){
     },
   }).then((result) => {
     if (result.isConfirmed) {
-      elemento.submit();
+      formDelete.submit();
     }
   });
 }

@@ -41,7 +41,7 @@
   }
 }
 
-@mixin botonCrud($bgColor, $colorTexto,$colorIcono,$bgColorIcono) {
+@mixin botonCrud($bgColor,$colorTexto,$colorIcono,$bgColorIcono) {
   background-color: $bgColor;
   color: $colorTexto;
   padding: 1rem 0;
@@ -50,13 +50,9 @@
   border-radius: 0.7em;
   letter-spacing: 0.08em;
   position: relative;
-  display: inline;
-  align-content: center;
-  align-items: center;
-  overflow: hidden;
   padding-left: 2.8em;
   padding-right: 0.9em;
-  width: 60%;
+  width: 65%;
 
   .icon {
     background-color: $bgColorIcono;
@@ -72,6 +68,7 @@
     transition: all 0.5s;
     cursor: pointer;
   }
+
    
   path{
     margin-left: 0.4em;
@@ -79,6 +76,10 @@
     width: 1.2rem;
     height: 1.2rem;
     fill: $colorIcono;
+  }
+
+  p{
+    font-size: 2rem;
   }
   
   &:hover .icon svg {
