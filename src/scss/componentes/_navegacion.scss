@@ -61,6 +61,14 @@
   display: flex;
   flex-direction: column;
 
+  &.active{
+    
+    a{
+      flex-direction: column;
+      gap: .3rem;
+    }
+  }
+
   a{
     display: inherit;
     align-items: center;
