@@ -11,7 +11,8 @@ function iniciarApp(){
 function quitarAlerta(){
   const $alerta = document.querySelector('.alerta');
   
-  if (document.body.contains($alerta) && !location.pathname.includes('/crear')) {
+  if (document.body.contains($alerta) && !location.pathname.includes('/crear') &&
+  !location.pathname.includes('/actualizar')) {
     setTimeout(() => {
       $alerta.classList.add('active');
     }, 3000);

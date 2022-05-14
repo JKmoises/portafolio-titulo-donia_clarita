@@ -82,13 +82,18 @@ class HuespedController{
     // debuguear($_SESSION);
 
     isAuth(); # Protegiendo esta ruta para que sea accesible solo a los loagueados
+
+    $clientes = Cliente::all('rut_empresa'); # Guardando todos los registros de los clientes
+    // debuguear($clientes);
     
-    //*  Retornando id del registro a actualizar si no existe se redirecciona a /habitaciones
-    $id = validarORedireccionar('habitaciones'); 
+    //*  Retornando id del registro a actualizar si no existe se redirecciona a /huespedes
+    $id = validarORedireccionar('huespedes'); 
     // debuguear($id);
 
+    $generos = ['F','M'];
+
     //* Obtener los datos de la propiedad segun id
-    $huesped = Huesped::where('rut_empresa',$id); # Objeto según id de la Clase Huesped
+    $huesped = Huesped::where('rut_huesped',$id); # Objeto según id de la Clase Huesped
     // debuguear($huesped);
 
     //* Arreglo con mensajes de alertas
@@ -110,7 +115,7 @@ class HuespedController{
       //* Revisar que el array de alertas esté vacío
       if (empty($alertas)) { # Si el arreglo $alertas está vacío...
     
-        $huesped->guardar('rut_empresa'); # Actualizando registro de huesped 
+        $huesped->guardar('rut_huesped'); # Actualizando registro de huesped 
 
         header('Location: /huespedes?resultado=2');
       }
@@ -122,6 +127,8 @@ class HuespedController{
       'huesped' => $huesped,
       'alertas' => $alertas,
       'rutaVista' => '/huespedes',
+      'generos' => $generos,
+      'clientes' => $clientes,
     ]);
   }
 
