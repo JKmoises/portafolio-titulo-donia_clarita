@@ -62,7 +62,7 @@ class UsuarioController{
       //* Revisar que el array de alertas esté vacío
       if (empty($alertas)) { # Si el arreglo $alertas está vacío...
     
-        $usuario->guardar(); # Actualizando registro de usuario 
+        $usuario->guardar('id'); # Actualizando registro de usuario 
 
         header('Location: /usuarios?resultado=2');
       }

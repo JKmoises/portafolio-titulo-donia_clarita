@@ -31,6 +31,6 @@
 <div class="campo">
   <label for="direccion">Dirección:</label>
   <input type="text" id="direccion" name="cliente[direccion]" placeholder="Ingrese una dirección (opcional)"
-  value="<?php echo s($cliente->direccion); ?>">
+  value="<?php echo s($cliente->direccion ?? 'No especificado'); ?>">
 </div>
 

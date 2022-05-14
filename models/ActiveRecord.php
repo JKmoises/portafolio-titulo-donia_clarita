@@ -101,11 +101,13 @@ class ActiveRecord{
   }
 
   //? Registros - CRUD
-  public function guardar(){
+  public function guardar($id = null){
     $resultado = '';
-    if (!is_null($this->id)) {
+    // debuguear($this->$id);
+    // debuguear(!is_null($this->$id));
+    if (!is_null($this->$id)) {
       //* actualizar
-      $resultado = $this->actualizar();
+      $resultado = $this->actualizar($id);
     } else {
       //* Creando un nuevo registro
       $resultado = $this->crear();
@@ -177,7 +179,7 @@ class ActiveRecord{
   }
 
   //? Actualizar el registro
-  public function actualizar(){
+  public function actualizar($id){
     //* Sanitizar los datos
     $atributos = $this->sanitizarAtributos();
     // debuguear($atributos);
@@ -192,7 +194,7 @@ class ActiveRecord{
     //* Consulta SQL
     $query = "UPDATE " . static::$tabla . " SET ";
     $query .=  join(', ', $valores);
-    $query .= " WHERE id = " . self::$db->quote($this->id);
+    $query .= " WHERE {$id} = " . self::$db->quote($this->$id);
     // debuguear($query);
 
     //* Actualizar BD

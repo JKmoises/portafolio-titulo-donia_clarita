@@ -13,7 +13,8 @@
     color: v.$titleColor;
   }
 
-  .nro-habitacion{
+  .nro-habitacion,
+  .rut{
     padding-left: calc(v.$separacion / 2);
     text-transform: uppercase;
   }

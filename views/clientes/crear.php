@@ -3,8 +3,8 @@
 
   <?php include_once __DIR__ . "/../templates/navegacion.php"; ?>
 
-  <section class="section">
-    <h2 class="nombre pagina">Registrar Cliente</h2>
+  <section class="section p-t-0">
+    <h2 class="nombre-pagina">Registrar Cliente</h2>
 
     <?php include_once __DIR__ . "/../templates/boton-volver.php"; ?>
 

@@ -4,7 +4,7 @@ namespace Model;
 class Cliente extends ActiveRecord{
   protected static $tabla = 'cliente'; # Tabla en donde se manejaran los datos
   protected static $columnasDB = [ # Columnas de la Tabla
-    'rut_empresa' ,
+    'rut_empresa',
     'dv',
     'empresa',
     'telefono',
@@ -29,7 +29,7 @@ class Cliente extends ActiveRecord{
   }
 
   public function validar(){
-    if (!$this->rut_empresa || strlen($this->rut_empresa) > 8) {
+    if (!$this->rut_empresa || strlen($this->rut_empresa) !== 8) {
       self::$alertas['error'][] = 'El Rut es Obligatorio y debe ser válido';
     }
 

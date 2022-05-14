@@ -113,7 +113,7 @@ class HabitacionController{
       //* Revisar que el array de alertas esté vacío
       if (empty($alertas)) { # Si el arreglo $alertas está vacío...
     
-        $habitacion->guardar(); # Actualizando registro de habitacion 
+        $habitacion->guardar('id'); # Actualizando registro de habitacion 
 
         header('Location: /habitaciones?resultado=2');
       }

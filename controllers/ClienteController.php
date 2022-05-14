@@ -70,7 +70,51 @@ class ClienteController{
   }
 
   public static function actualizar(Router $router){
+    session_start();
+    // debuguear($_SESSION);
+
+    isAuth(); # Protegiendo esta ruta para que sea accesible solo a los loagueados
     
+    //*  Retornando id del registro a actualizar si no existe se redirecciona a /habitaciones
+    $id = validarORedireccionar('habitaciones'); 
+    // debuguear($id);
+
+    //* Obtener los datos de la propiedad segun id
+    $cliente = Cliente::where('rut_empresa',$id); # Objeto según id de la Clase Cliente
+    // debuguear($cliente);
+
+    //* Arreglo con mensajes de alertas
+    $alertas = Cliente::getAlertas();
+
+    //* Ejecuta el código después de que el usuario envía el formulario.
+    if ($_SERVER["REQUEST_METHOD"] === 'POST') { #  Si el metodo usado para enviar el formulario es 'POST'
+      // debuguear($_POST);  
+
+      //* Asignando los atributos con sus valores al arreglo para sincronizar el objeto del id a actualizar
+      $args = $_POST["cliente"];
+      
+      $cliente->sincronizar($args); # Sincronizando objeto segun id para actualizar datos del registro
+      // debuguear($cliente);  
+
+      //* Validando entradas del formulario
+      $alertas = $cliente->validar();
+
+      //* Revisar que el array de alertas esté vacío
+      if (empty($alertas)) { # Si el arreglo $alertas está vacío...
+    
+        $cliente->guardar('rut_empresa'); # Actualizando registro de cliente 
+
+        header('Location: /clientes?resultado=2');
+      }
+    }
+    
+    $router->render('/clientes/actualizar',[
+      'nombre' => $_SESSION['nombre'],
+      'rol' => $_SESSION['rol'],
+      'cliente' => $cliente,
+      'alertas' => $alertas,
+      'rutaVista' => '/clientes',
+    ]);
   }
 
   public static function eliminar(){
