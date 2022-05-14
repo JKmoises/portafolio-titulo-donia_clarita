@@ -50,6 +50,12 @@ table.tabla {
   }
 }
 
+.tabla-huespedes{
+  thead{
+    background-color: v.$blueAlphaColor;
+  }
+}
+
 .tabla-habitaciones{
   thead{
     background-color: v.$secondAlphaColor;

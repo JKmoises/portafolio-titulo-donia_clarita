@@ -36,4 +36,32 @@ class Huesped extends ActiveRecord{
     $this->telefono = $args['telefono'] ?? '';
     $this->cliente_id = $args['cliente_id'] ?? '';
   }
+
+  public function validar(){
+    if (!$this->rut_empresa || strlen($this->rut_empresa) !== 8) {
+      self::$alertas['error'][] = 'El Rut es Obligatorio y debe ser válido';
+    }
+
+    if (!$this->dv || strlen($this->dv) !== 1) {
+      self::$alertas['error'][] = 'El Dígito Verificador es Obligatorio y debe ser solo un dígito';
+    
+    }
+
+    if (!$this->nombre) {
+      self::$alertas['error'][] = 'Debes añadir el nombre del huesped';
+    
+    }
+
+    if (!$this->apellido) {
+      self::$alertas['error'][] = 'Debes añadir el apellido del huesped';
+    
+    }
+
+    if (!$this->profesion) {
+      self::$alertas['error'][] = 'Debes añadir la profesión del huesped';
+    
+    }
+
+    return self::$alertas;
+  } 
 }
