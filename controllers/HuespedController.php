@@ -142,9 +142,9 @@ class HuespedController{
 
       if ($id) { # Si existe un id guardado en el name 'id'...
         //* Obtener los datos de la huesped segun id
-        $huesped = Huesped::where('rut_empresa',$id); # Objeto según id de la Clase huesped
+        $huesped = Huesped::where('rut_huesped',$id); # Objeto según id de la Clase huesped
         // debuguear($huesped);
-        $resultado = $huesped->eliminar('rut_empresa'); # Eliminando registro de huesped
+        $resultado = $huesped->eliminar('rut_huesped'); # Eliminando registro de huesped
 
         if ($resultado) {
           header('Location: /huespedes?resultado=3');
