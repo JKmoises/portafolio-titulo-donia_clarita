@@ -205,9 +205,8 @@ class ActiveRecord{
   }
 
   //? Eliminar un Registro por su ID
-  public function eliminar(){
-    $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->quote($this->id);
-    // debuguear($query);
+  public function eliminar($id = 'id'){
+    $query = "DELETE FROM "  . static::$tabla . " WHERE {$id} = " . self::$db->quote($this->$id);
     //* Ejecutando la consulta y devolviendo la cantidad de filas afectadas
     $resultado = self::$db->exec($query);
     // debuguear($resultado);

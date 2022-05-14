@@ -139,6 +139,7 @@ class HabitacionController{
       $id = $_POST["id"]; # Guardando Id de una habitacion en el name 'id'
       $id = filter_var($id, FILTER_VALIDATE_INT); # Validando que el id sea un entero
       
+      
       if ($id) { # Si existe un id guardado en el name 'id'...
         $tipo = $_POST["tipo"]; # Guardando tipo(que se eliminará, la habitacion o el vendedor)
         // debuguear($tipo);

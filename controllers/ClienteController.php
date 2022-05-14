@@ -118,7 +118,26 @@ class ClienteController{
   }
 
   public static function eliminar(){
-    
+    //* Ejecuta el código después de que el usuario envía el formulario.
+    if ($_SERVER["REQUEST_METHOD"] === 'POST') { #  Si el metodo usado para enviar el formulario es 'POST'
+      // debuguear($_POST);
+
+      $id = $_POST["id"]; # Guardando Id de una cliente en el name 'id'
+      $id = filter_var($id, FILTER_VALIDATE_INT); # Validando que el id sea un entero
+
+      if ($id) { # Si existe un id guardado en el name 'id'...
+        //* Obtener los datos de la cliente segun id
+        $cliente = Cliente::where('rut_empresa',$id); # Objeto según id de la Clase Cliente
+        // debuguear($cliente);
+        $resultado = $cliente->eliminar('rut_empresa'); # Eliminando registro de cliente
+
+        if ($resultado) {
+          header('Location: /clientes?resultado=3');
+        }
+        
+      }
+  
+    }
   }
   
 }

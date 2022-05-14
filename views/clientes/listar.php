@@ -37,8 +37,8 @@
             <td><?php echo $cliente->email; ?></td>
             <td><?php echo $cliente->direccion ?? 'No especificado'; ?></td>
             <td>
-              <form method="POST" class="formulario-eliminar w-100" action="/usuarios/eliminar">
-                <!-- entrada de formulario oculta para guardar id de cada usuario -->
+              <form method="POST" class="formulario-eliminar w-100" action="/clientes/eliminar">
+                <!-- entrada de formulario oculta para guardar id de cada cliente -->
                 <input type="hidden" name="id" value="<?php echo $cliente->rut_empresa; ?>">
                 <button type="submit" class="boton-eliminar">
                   <div class="icon">
