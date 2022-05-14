@@ -32,6 +32,8 @@ function mostrarConfirmacionEliminar(){
     mostrarConfirmacion($formularioEliminar,'¿Estas seguro que quieres eliminar una habitación?');
   }else if(location.pathname === '/clientes'){
     mostrarConfirmacion($formularioEliminar,'¿Estas seguro que quieres eliminar un cliente?');
+  }else if(location.pathname === '/huespedes'){
+    mostrarConfirmacion($formularioEliminar,'¿Estas seguro que quieres eliminar un huésped?');
   }else{
     return;
   }

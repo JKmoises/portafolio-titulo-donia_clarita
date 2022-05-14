@@ -38,7 +38,7 @@ class Huesped extends ActiveRecord{
   }
 
   public function validar(){
-    if (!$this->rut_empresa || strlen($this->rut_empresa) !== 8) {
+    if (!$this->rut_huesped || strlen($this->rut_huesped) !== 8) {
       self::$alertas['error'][] = 'El Rut es Obligatorio y debe ser válido';
     }
 
@@ -59,6 +59,11 @@ class Huesped extends ActiveRecord{
 
     if (!$this->profesion) {
       self::$alertas['error'][] = 'Debes añadir la profesión del huesped';
+    
+    }
+
+    if (!$this->cliente_id) {
+      self::$alertas['error'][] = 'El cliente es Obligatorio';
     
     }
 

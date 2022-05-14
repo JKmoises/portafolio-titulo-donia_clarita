@@ -1,6 +1,7 @@
 <?php 
 namespace Controllers;
 
+use Model\Cliente;
 use Model\Huesped;
 use MVC\Router;
 
@@ -11,7 +12,7 @@ class HuespedController{
 
     isAuth(); # Protegiendo esta ruta
 
-    $huespedes = Huesped::all('rut_huesped'); # Guardando todos los registros de las huespedes
+    $huespedes = Huesped::all('rut_huesped'); # Guardando todos los registros de los huespedes
     // debuguear($huespedes);
 
     //* Esto quiere decir que devuelve el valor del name 'resultado' y si no existe devuelve null
@@ -32,33 +33,38 @@ class HuespedController{
 
     isAuth(); # Protegiendo esta ruta para que sea accesible solo a los loagueados
 
-     //* Instanciando objeto de la clase Propiedades para tener sus atributos con valores por defecto
-     $huesped = new Huesped; # Ahora el objeto existe antes de que se envíe el formulario
+    $clientes = Cliente::all('rut_empresa'); # Guardando todos los registros de los clientes
+    // debuguear($clientes);
 
-     //* Arreglo con mensajes de alertas
-     $alertas = Huesped::getAlertas();  
+    //* Instanciando objeto de la clase Propiedades para tener sus atributos con valores por defecto
+    $huesped = new Huesped; # Ahora el objeto existe antes de que se envíe el formulario
 
-     //*  Ejecuta el código después de que el usuario envía el formulario.
-     if ($_SERVER["REQUEST_METHOD"] === 'POST') { # Si el metodo usado para enviar el formulario es 'POST'
-      //  debuguear($_POST);
+    $generos = ['F','M'];
 
-       //? Creación de nueva instancia 
-       $huesped = new Huesped($_POST["huesped"]);#Como argumento recibe el arreglo con los datos enviados 
-      //  debuguear($huesped);
- 
-       //? Validacion de datos insertados
-       $alertas = $huesped->validar(); # Validando los datos que se pueden insertar en la BD
-        // debuguear($alertas);
- 
-       //? Si no hay errores de validación...
-       if (empty($alertas)) { # Si el arreglo $alertas está vacío...
-         
-        $huesped->guardar(); # Insertando registro en la BD
+    //* Arreglo con mensajes de alertas
+    $alertas = Huesped::getAlertas();  
 
-        header('Location: /huespedes?resultado=1');
-      
-       }
-     }
+    //*  Ejecuta el código después de que el usuario envía el formulario.
+    if ($_SERVER["REQUEST_METHOD"] === 'POST') { # Si el metodo usado para enviar el formulario es 'POST'
+    //  debuguear($_POST);
+
+      //? Creación de nueva instancia 
+      $huesped = new Huesped($_POST["huesped"]);#Como argumento recibe el arreglo con los datos enviados 
+    //  debuguear($huesped);
+
+      //? Validacion de datos insertados
+      $alertas = $huesped->validar(); # Validando los datos que se pueden insertar en la BD
+      // debuguear($alertas);
+
+      //? Si no hay errores de validación...
+      if (empty($alertas)) { # Si el arreglo $alertas está vacío...
+        
+      $huesped->guardar(); # Insertando registro en la BD
+
+      header('Location: /huespedes?resultado=1');
+    
+      }
+    }
      
     $router->render('/huespedes/crear',[
       'nombre' => $_SESSION['nombre'],
@@ -66,6 +72,8 @@ class HuespedController{
       'huesped' => $huesped,
       'alertas' => $alertas,
       'rutaVista' => '/huespedes',
+      'generos' => $generos,
+      'clientes' => $clientes,
     ]);
   }
 

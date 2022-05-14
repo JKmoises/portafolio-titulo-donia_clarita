@@ -16,6 +16,11 @@
   select,
   textarea{
     border: thin solid v.$grayColor;
+    color: v.$grayDarkColor;
+
+    option{
+      color: v.$blackColor;
+    }
   }
 
 }
