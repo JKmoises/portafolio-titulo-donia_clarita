@@ -27,4 +27,32 @@ class Cliente extends ActiveRecord{
     $this->email = $args['email'] ?? '';
     $this->direccion = $args['direccion'] ?? '';
   }
+
+  public function validar(){
+    if (!$this->rut_empresa || strlen($this->rut_empresa) > 8) {
+      self::$alertas['error'][] = 'El Rut es Obligatorio y debe ser válido';
+    }
+
+    if (!$this->dv || strlen($this->dv) !== 1) {
+      self::$alertas['error'][] = 'El Dígito Verificador es Obligatorio y debe ser solo un dígito';
+    
+    }
+
+    if (!$this->empresa) {
+      self::$alertas['error'][] = 'Debes añadir el nombre de la empresa';
+    
+    }
+
+    if (!$this->telefono) {
+      self::$alertas['error'][] = 'El Teléfono es Obligatorio';
+    
+    }
+
+    if (!$this->email) {
+      self::$alertas['error'][] = 'El Email es Obligatorio';
+    
+    }
+
+    return self::$alertas;
+  } 
 }

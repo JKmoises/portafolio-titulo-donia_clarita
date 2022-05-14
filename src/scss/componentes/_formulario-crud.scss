@@ -11,16 +11,11 @@
     text-transform: uppercase;
     font-size: initial;
   }
-
+  
   input,
   select,
   textarea{
     border: thin solid v.$grayColor;
-  }
-
-  .campo:last-of-type,
-  .campo:nth-child(5){
-    grid-column: span 2;
   }
 
 }

@@ -35,7 +35,7 @@
             <td><?php echo $cliente->rut_empresa . "-" . $cliente->dv; ?></td>
             <td><?php echo $cliente->empresa; ?></td>
             <td><?php echo $cliente->email; ?></td>
-            <td><?php echo $cliente->direccion; ?></td>
+            <td><?php echo $cliente->direccion ?? 'No especificado'; ?></td>
             <td>
               <form method="POST" class="formulario-eliminar w-100" action="/usuarios/eliminar">
                 <!-- entrada de formulario oculta para guardar id de cada usuario -->

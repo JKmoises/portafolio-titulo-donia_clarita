@@ -22,7 +22,7 @@
   value="<?php echo s($usuario->email); ?>">
 </div>
 
-<div class="campo">
+<div class="campo expand-2">
   <label for="email">Rol</label>
   <select id="rol" name="usuario[rol]">
     <option selected value="">-- Seleccione --</option>

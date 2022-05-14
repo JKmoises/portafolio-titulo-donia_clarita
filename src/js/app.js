@@ -11,14 +11,14 @@ function iniciarApp(){
 function quitarAlerta(){
   const $alerta = document.querySelector('.alerta');
   
-  if (document.body.contains($alerta)) {
+  if (document.body.contains($alerta) && !location.pathname.includes('/crear')) {
     setTimeout(() => {
       $alerta.classList.add('active');
-    }, 4000);
+    }, 3000);
 
     setTimeout(() => {
       $alerta.remove();
-    }, 5000);
+    }, 4000);
   }
 }
 
@@ -30,6 +30,10 @@ function mostrarConfirmacionEliminar(){
     mostrarConfirmacion($formularioEliminar,'¿Estas seguro que quieres eliminar un usuario?');
   }else if (location.pathname === '/habitaciones') {
     mostrarConfirmacion($formularioEliminar,'¿Estas seguro que quieres eliminar una habitación?');
+  }else if(location.pathname === '/clientes'){
+    mostrarConfirmacion($formularioEliminar,'¿Estas seguro que quieres eliminar un cliente?');
+  }else{
+    return;
   }
 
   

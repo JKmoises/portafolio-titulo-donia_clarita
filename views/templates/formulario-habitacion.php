@@ -38,7 +38,7 @@
   </select>
 </div>
 
-<div class="campo">
+<div class="campo expand-2">
   <label class="text-top" for="descripcion">Descripción:</label>
   <textarea id="descripcion" name="habitacion[descripcion]" rows="10" placeholder="Ingrese una Descripcion"><?php echo s($habitacion->descripcion); ?></textarea>
 </div>
