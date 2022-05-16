@@ -43,7 +43,7 @@ class LoginController{
             if ($usuario->rol === "Admin") { # Si el usuario autenticado es admin...
               header('Location: /usuarios'); 
             }else if($usuario->rol === "Cliente"){ 
-              header('Location: /habitaciones/reservar'); 
+              header('Location: /reservas'); 
             }else if ($usuario->rol === "Empleado") {
               header('Location: /habitaciones'); 
             }else if($usuario->rol === "Proveedor"){

@@ -12,7 +12,7 @@
 
     <p class="nro-habitacion"><b>Id Usuario:</b> <?php echo $usuario->id; ?></p>
     <form class="formulario formulario-crud" method="POST">
-      <?php include_once __DIR__ . "/../templates/formulario-usuario.php"; ?>
+      <?php include_once __DIR__ . "/../templates/formulario/formulario-usuario.php"; ?>
 
       <button type="submit" class="boton-actualizar">
         <div class="icon">

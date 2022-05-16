@@ -10,9 +10,8 @@
 
     <?php include_once __DIR__ . "/../templates/alertas.php"; ?>
 
-    <p class="rut"><b>Rut Cliente:</b> <?php echo $cliente->rut_empresa; ?></p>
     <form class="formulario formulario-crud" method="POST">
-      <?php include_once __DIR__ . "/../templates/formulario-cliente.php"; ?>
+      <?php include_once __DIR__ . "/../templates/formulario/formulario-cliente.php"; ?>
 
       <button type="submit" class="boton-crear">
         <div class="icon">

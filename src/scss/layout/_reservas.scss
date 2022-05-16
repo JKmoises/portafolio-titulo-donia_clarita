@@ -16,22 +16,6 @@
   &:hover{
     opacity: .8;
   }
-  
-  &.disponible{
-    background-color: v.$greenColor;
-  }
-
-  &.ocupada{
-    background-color: v.$redColor;
-  }
-
-  &.reservada{
-    background-color: v.$blueColor;
-  }
-
-  &.mantenimiento{
-    background-color: v.$yellowColor;
-  }
 
   .icono{
     width: calc(v.$separacion + 1rem);

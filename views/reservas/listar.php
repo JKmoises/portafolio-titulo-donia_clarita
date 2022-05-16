@@ -12,17 +12,21 @@
         <?php 
           if ($habitacion->estado === 'Disponible') {
             $estadoClass = 'disponible';
+            $ruta = '/reservas/disponible?id=' . $habitacion->id;;
           }else if($habitacion->estado === 'Ocupada'){
             $estadoClass = 'ocupada';
+            $ruta = '/reservas/ocupada?id=' . $habitacion->id;;
           }else if($habitacion->estado === 'Reservada'){
             $estadoClass = 'reservada';
+            $ruta = '/reservas/reservada?id=' . $habitacion->id;;
           }else{
             $estadoClass = 'mantenimiento';
+            $ruta = '/reservas?id=' . $habitacion->id;;
           }
         ?>
-        <a href="#" class="habitacion <?php echo $estadoClass; ?>">
+        <a href="<?php echo $ruta; ?>" class="habitacion <?php echo $estadoClass; ?>">
           <img class="icono" src="/build/img/bed-icon.svg" alt="Cama">
-          <span class="numero">Nro. <?php echo $habitacion->id; ?></span>
+          <span class="numero">N° <?php echo $habitacion->id; ?></span>
           <hr>
           <p class="precio text-center">$<?php echo $habitacion->precio; ?> - <?php echo $habitacion->titulo; ?></p>
           <p class="estado text-center"><?php echo $habitacion->estado; ?></p>

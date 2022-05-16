@@ -42,7 +42,8 @@ img {
 }
 
 .section {
-  padding: 2rem 1rem;
+  background-color: v.$grayLightColor;
+  padding: 2rem 1.5rem;
   grid-column: 2 / 3;
 }
 
@@ -84,6 +85,22 @@ img {
 
 .text-right {
   text-align: right;
+}
+
+.disponible{
+  background-color: v.$greenColor;
+}
+
+.ocupada{
+  background-color: v.$redColor;
+}
+
+.reservada{
+  background-color: v.$blueColor;
+}
+
+.mantenimiento{
+  background-color: v.$yellowColor;
 }
 
 

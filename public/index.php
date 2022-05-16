@@ -58,7 +58,13 @@ $router->post('/habitaciones/actualizar',[HabitacionController::class,'actualiza
 $router->post('/habitaciones/eliminar',[HabitacionController::class,'eliminar']);
 
 //* Reservar Habitaciones
-$router->get('/habitaciones/reservar',[ReservasController::class,'listar']); 
+$router->get('/reservas',[ReservasController::class,'listar']); 
+$router->get('/reservas/disponible',[ReservasController::class,'crear']); 
+$router->post('/reservas/disponible',[ReservasController::class,'crear']); 
+$router->get('/reservas/reservada',[ReservasController::class,'']); 
+$router->post('/reservas/reservada',[ReservasController::class,'']); 
+$router->get('/reservas/ocupada',[ReservasController::class,'']); 
+$router->post('/reservas/ocupada',[ReservasController::class,'']); 
 
 
 //* Usuarios Registrados 

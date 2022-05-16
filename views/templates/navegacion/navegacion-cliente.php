@@ -6,7 +6,7 @@
     </summary>
 
     <article class="opciones">
-      <a href="/habitaciones/reservar">
+      <a href="/reservas">
         <img src="../build/img/reserve-icon.svg" alt="icono listar">
         Reservar
       </a>

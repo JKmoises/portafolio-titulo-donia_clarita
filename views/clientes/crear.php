@@ -11,7 +11,7 @@
     <?php include_once __DIR__ . "/../templates/alertas.php"; ?>
 
     <form class="formulario formulario-crud" method="POST">
-      <?php include_once __DIR__ . "/../templates/formulario-cliente.php"; ?>
+      <?php include_once __DIR__ . "/../templates/formulario/formulario-cliente.php"; ?>
 
       <button type="submit" class="boton-crear">
         <div class="icon">

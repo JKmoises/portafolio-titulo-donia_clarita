@@ -1,0 +1,52 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.detalle-habitacion{
+  border-radius: .5rem;
+  border-top: medium solid v.$firstColor;
+  text-transform: uppercase;
+  margin-bottom: calc(v.$separacion / 2);
+  
+  .titulo{
+    padding: calc(v.$separacion / 4);
+    border-bottom: thin solid v.$grayColor;
+    font-weight: v.$black;
+    color: v.$titleColor;
+  }
+  
+  .titulo,
+  .datos-habitacion{
+    padding: calc(v.$separacion / 4);
+  }
+
+
+}
+
+.datos-habitacion{
+  @include m.grid(3,0);
+
+  li{
+    color: v.$firstColor;
+    font-weight: v.$bold;
+    padding: 1rem;
+    list-style: none;
+  }
+
+  span{
+    display: inline-block;
+    margin-left: .5rem;
+    color: v.$textColor;
+    font-weight: v.$regular;
+
+    &.disponible,
+    &.reservada,
+    &.ocupada,
+    &.mantenimiento{
+      border-radius: .5rem;
+      padding: .5rem 1rem;
+      color: v.$whiteColor;
+      font-weight: v.$bold;
+      letter-spacing: .1rem;
+    }
+  }
+}
