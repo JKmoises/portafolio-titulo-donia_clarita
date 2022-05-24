@@ -48,7 +48,6 @@ class OrdenCompra extends ActiveRecord{
 
     return [
       'resultado' =>  $resultado, # true o false si se insertó o no
-      // 'id' => self::$db->lastInsertId(), # Id de registro insertado
     ];
   }
 }

@@ -134,7 +134,7 @@ async function consultaAPI(){
 
 function mostrarServicios(servicios) {
   servicios.forEach(servicio => {
-    const {id, tipo, precio, descripcion, tipo_cama,estado } = servicio;
+    const {id, tipo, precio, descripcion, tipo_cama } = servicio;
 
     const nombreServicio = document.createElement('p');
     nombreServicio.classList.add('nombre-servicio','third-text-color');
@@ -163,11 +163,12 @@ function mostrarServicios(servicios) {
     servicioDiv.appendChild(precioServicio);
 
     document.querySelector('#servicios').appendChild(servicioDiv);
+    
   });
 }
 
 function seleccionarServicio(servicio){
-  const { id } = servicio; //* Id de servicio seleccionado
+  const { id,precio } = servicio; //* Id de servicio seleccionado
   const { servicios } = reserva; //* Arreglo de servicios a llenar
 
   //* Identificando al elemento que se le da click 
@@ -179,11 +180,19 @@ function seleccionarServicio(servicio){
     //* Eliminar servicio
     reserva.servicios = servicios.filter(agregado => agregado.id !== id);
     divServicio.classList.remove('seleccionado');
+    reserva.total -= parseInt(precio);
+    reserva.subtotal -= parseInt(precio);
   }else{ //* Si no son iguales los Ids
     //* Agregar servicio 
     reserva.servicios = [...servicios, servicio]; //* Agregando nuevo servicio y servicios que existian ya
     divServicio.classList.add('seleccionado');
+    reserva.total += parseInt(precio);
+    reserva.subtotal += parseInt(precio);
   }
+  
+
+
+
   // console.log(servicio);
   console.log(reserva);
 
@@ -301,16 +310,19 @@ function mostrarResumen(){
   }
 
   //? Formatear el div de resumen
-  const {id, nombre, fechaLlegada, fechaSalida, servicios} = reserva; //* Guardando datos de la reserva
+  const { nombre, fechaLlegada, fechaSalida, subtotal, total, servicios} = reserva; //* Guardando datos de la reserva
+
 
   //? Heading para servicios en resumen
   const headingServicios = document.createElement('h3');
   headingServicios.textContent = 'Resumen de Servicios';
   resumen.appendChild(headingServicios);
 
+
   //? Iterando y mostrando los servicios 
   servicios.forEach(servicio => {
     const {precio, tipo, tipo_cama} = servicio;
+
     const contenedorServicio = document.createElement('div');
     contenedorServicio.classList.add('contenedor-servicio');
 
@@ -351,6 +363,9 @@ function mostrarResumen(){
   const salidaReserva = document.createElement('p');
   salidaReserva.innerHTML = /*html*/`<span>Fecha Salida:</span> ${fechaSalidaFormateada}`;
 
+  const costoReserva = document.createElement('p');
+  costoReserva.innerHTML = /*html*/`<span>Costo Total:</span> $${total}`;
+
 
   //? Boton para crear una reserva
   const botonReservar = document.createElement('button');
@@ -361,6 +376,7 @@ function mostrarResumen(){
   resumen.appendChild(nombreCliente);
   resumen.appendChild(entradaReserva);
   resumen.appendChild(salidaReserva);
+  resumen.appendChild(costoReserva);
 
   resumen.appendChild(botonReservar);
 
