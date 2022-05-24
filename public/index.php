@@ -2,10 +2,12 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\ApiController;
 use Controllers\ClienteController;
 use Controllers\HabitacionController;
 use Controllers\HuespedController;
 use Controllers\LoginController;
+use Controllers\ReservarController;
 use Controllers\ReservasController;
 use Controllers\UsuarioController;
 use MVC\Router;
@@ -57,7 +59,7 @@ $router->get('/habitaciones/actualizar',[HabitacionController::class,'actualizar
 $router->post('/habitaciones/actualizar',[HabitacionController::class,'actualizar']); 
 $router->post('/habitaciones/eliminar',[HabitacionController::class,'eliminar']);
 
-//* Reservar Habitaciones
+//* Reservas Admin
 $router->get('/reservas',[ReservasController::class,'listar']); 
 $router->get('/reservas/disponible',[ReservasController::class,'crear']); 
 $router->post('/reservas/disponible',[ReservasController::class,'crear']); 
@@ -72,6 +74,14 @@ $router->get('/usuarios',[UsuarioController::class,'listar']);
 $router->get('/usuarios/actualizar',[UsuarioController::class,'actualizar']); 
 $router->post('/usuarios/actualizar',[UsuarioController::class,'actualizar']); 
 $router->post('/usuarios/eliminar',[UsuarioController::class,'eliminar']);
+
+
+//* Reservar Habitaciones
+$router->get('/reservar',[ReservarController::class,'index']); 
+
+//* API de Reservar
+$router->get('/api/habitaciones',[ApiController::class,'index']); 
+$router->post('/api/reservas',[APIController::class,'guardar']); 
 
 
 

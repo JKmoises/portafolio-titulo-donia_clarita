@@ -21,6 +21,12 @@
         <input type="text" id="apellido" name="apellido" placeholder="Tu Apellido"
         value="<?php echo s($usuario->apellido); ?>">
       </div>
+
+      <!-- <div class="campo">
+        <label for="empresa">Empresa</label>
+        <input type="text" id="empresa" name="empresa" placeholder="Tu Empresa"
+        value="">
+      </div> -->
     
       <div class="campo">
         <label for="telefono">Teléfono</label>

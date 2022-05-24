@@ -1,13 +1,20 @@
-document.addEventListener('DOMContentLoaded',iniciarApp);
+
+
+document.addEventListener('DOMContentLoaded',() => iniciarApp());
 
 
 
 function iniciarApp(){
+
   quitarAlerta(); //? Quita una alerta despues de unos segundos
   mostrarConfirmacionEliminar(); //? Muestra Modal de confirmacion 
   colapsarMenu(); //? Colapsa el menu de navegación
 } 
 
+
+
+
+// TODO: Funcionalidades de Reservas de Admin 
 function quitarAlerta(){
   const $alerta = document.querySelector('.alerta');
   

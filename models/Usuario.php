@@ -126,7 +126,7 @@ class Usuario extends ActiveRecord{
 
     //* Si no es correcto el password autenticado o el usuario registrado no está confirmado en su email... 
     if (!$resultado || !$this->confirmado) { 
-      self::$alertas['error'][] = 'Password Incorrecto o tu cuenta no ha sido confirmanda';
+      self::$alertas['error'][] = 'Password Incorrecto o tu cuenta no ha sido confirmada';
     }else{ #Si es correcto el password autenticado y el usuario registrado está confirmado en su email... 
       return true;
     }

@@ -29,7 +29,13 @@
         <img src="../build/img/create-icon.svg" alt="icono crear">
         Registrar
       </a>
+
+      <a href="/reservas">
+        <img src="../build/img/reserve-icon.svg" alt="icono listar">
+        Reservas
+      </a>
     </article>
+
   </details>
 
   <details>

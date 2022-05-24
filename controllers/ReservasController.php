@@ -28,6 +28,9 @@ class ReservasController{
 
     isAuth(); # Protegiendo esta ruta
 
+    //* Obtener todos los clientes registrados
+    $clientes = Cliente::all('rut_empresa'); 
+
     //*  Retornando id del registro a actualizar si no existe se redirecciona a /reservas
     $id = validarORedireccionar('reservas'); 
     // debuguear($id);
@@ -84,6 +87,7 @@ class ReservasController{
       'alertas' => $alertas,
       'rutaVista' => '/reservas',
       'estadoClass' => $estadoClass,
+      'clientes' => $clientes,
     ]);
   }
 }

@@ -1,0 +1,19 @@
+@use 'base/variables' as v;
+
+.seccion{
+  display: none;
+  padding: v.$separacion 0;
+  
+  h2{
+    color: v.$whiteColor;
+  }
+
+  &.mostrar{
+    display: block;
+  }
+
+  &.ocultar{
+    display: none;
+  }
+
+}

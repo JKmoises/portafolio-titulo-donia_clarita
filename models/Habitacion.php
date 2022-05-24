@@ -5,35 +5,32 @@ class Habitacion extends ActiveRecord{
   protected static $tabla = 'habitacion'; # Tabla en donde se manejaran los datos
   protected static $columnasDB = [ # Columnas de la Tabla
     'id' ,
-    'titulo',
+    'tipo',
     'estado',
     'precio',
     'descripcion',
     'tipo_cama',
-    'huesped_id',
   ]; 
 
   public $id;
-  public $titulo;
+  public $tipo;
   public $estado;
   public $precio;
   public $descripcion;
   public $tipo_cama;
-  public $huesped_id;
 
   public function __construct($args = []){
     $this->id = $args['id'] ?? null;
-    $this->titulo = $args['titulo'] ?? '';
+    $this->tipo = $args['tipo'] ?? '';
     $this->estado = $args['estado'] ?? 'Disponible';
     $this->precio = $args['precio'] ?? '';
     $this->descripcion = $args['descripcion'] ?? '';
     $this->tipo_cama = $args['tipo_cama'] ?? '';
-    $this->huesped_id = $args['huesped_id'] ?? null ;
   }
 
   // TODO: Validando los campos para insertar o actualizar habitaion
   public function validar(){
-    if (!$this->titulo) { 
+    if (!$this->tipo) { 
       self::$alertas['error'][] = 'Debes añadir un tipo de habitación'; 
     }
 

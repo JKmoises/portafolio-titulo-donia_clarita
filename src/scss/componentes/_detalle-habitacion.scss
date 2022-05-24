@@ -2,6 +2,7 @@
 @use 'base/mixins' as m;
 
 .detalle-habitacion{
+  background-color: v.$whiteColor;
   border-radius: .5rem;
   border-top: medium solid v.$firstColor;
   text-transform: uppercase;
@@ -37,7 +38,7 @@
     margin-left: .5rem;
     color: v.$textColor;
     font-weight: v.$regular;
-
+    
     &.disponible,
     &.reservada,
     &.ocupada,
@@ -48,5 +49,10 @@
       font-weight: v.$bold;
       letter-spacing: .1rem;
     }
+
+   /*  &.precio{
+      background-color: v.$secondColor;
+      font-weight: v.$regular;
+    } */
   }
 }

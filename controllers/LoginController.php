@@ -43,7 +43,7 @@ class LoginController{
             if ($usuario->rol === "Admin") { # Si el usuario autenticado es admin...
               header('Location: /usuarios'); 
             }else if($usuario->rol === "Cliente"){ 
-              header('Location: /reservas'); 
+              header('Location: /reservar'); 
             }else if ($usuario->rol === "Empleado") {
               header('Location: /habitaciones'); 
             }else if($usuario->rol === "Proveedor"){
@@ -155,7 +155,7 @@ class LoginController{
       //* Modificar a usuario confirmado
       $usuario->confirmado = "1"; # Cambiando la columna confirmado a 1 del usuario que se registró
       $usuario->token = null; # Eliminando token
-      $usuario->guardar(); # Actualizando al usuario registrado 
+      $usuario->guardar('id'); # Actualizando al usuario registrado 
       Usuario::setAlerta('exito','Cuenta Comprobada Correctamente');#Agregando alerta de exito al arreglo 
     }
 

@@ -3,7 +3,7 @@
 
   <ul class="datos-habitacion">
     <li>N° Habitación: <span><?php echo $habitacion->id; ?></span></li>
-    <li>Tipo de Habitación: <span><?php echo $habitacion->titulo; ?></span></li>
+    <li>Tipo de Habitación: <span><?php echo $habitacion->tipo; ?></span></li>
     <li>
       Estado:
       <span class="<?php echo $estadoClass; ?>"><?php echo $habitacion->estado; ?></span>

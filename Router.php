@@ -49,7 +49,7 @@ class Router{
     }
   }
 
-  //? Renderiza una vista(HTML) y permite pasar datos a esta
+  //? Renderiza una vist  a(HTML) y permite pasar datos a esta
   public function render($view,$datos = []){
     // debuguear($datos);
 

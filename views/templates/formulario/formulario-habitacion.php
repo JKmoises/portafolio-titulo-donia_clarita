@@ -1,9 +1,9 @@
 <!--  No recomendable dejar con espacios el textarea ya desaparece el placeholder -->
 
 <div div class="campo">
-  <label for="titulo">Habitación:</label>
-  <input type="text" id="titulo" name="habitacion[titulo]" placeholder="Ingrese un Tipo de Habitación"
-  value="<?php echo s($habitacion->titulo); ?>">
+  <label for="tipo">Habitación:</label>
+  <input type="text" id="tipo" name="habitacion[tipo]" placeholder="Ingrese un Tipo de Habitación"
+  value="<?php echo s($habitacion->tipo); ?>">
 </div>
 
 <div class="campo">

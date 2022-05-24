@@ -35,7 +35,7 @@
         <?php foreach ($habitaciones as $habitacion): ?>
           <tr>
             <td><?php echo $habitacion->id; ?></td>
-            <td><?php echo $habitacion->titulo; ?></td>
+            <td><?php echo $habitacion->tipo; ?></td>
             <td><?php echo $habitacion->estado; ?></td>
             <td>$<?php echo $habitacion->precio; ?></td>
             <td><?php echo $habitacion->tipo_cama; ?></td>
@@ -75,3 +75,4 @@
   </section>
 
 </div>
+

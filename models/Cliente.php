@@ -10,6 +10,7 @@ class Cliente extends ActiveRecord{
     'telefono',
     'email',
     'direccion',
+    'huesped_id',
   ]; 
 
   public $rut_empresa;
@@ -18,6 +19,7 @@ class Cliente extends ActiveRecord{
   public $telefono;
   public $email;
   public $direccion;
+  public $huesped_id;
 
   public function __construct($args = []){
     $this->rut_empresa = $args['rut_empresa'] ?? null;
@@ -26,6 +28,7 @@ class Cliente extends ActiveRecord{
     $this->telefono = $args['telefono'] ?? '';
     $this->email = $args['email'] ?? '';
     $this->direccion = $args['direccion'] ?? '';
+    $this->huesped_id = $args['huesped_id'] ?? '';
   }
 
   public function validar(){

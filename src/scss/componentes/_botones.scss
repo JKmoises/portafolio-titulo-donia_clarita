@@ -5,6 +5,11 @@
   @include m.boton(v.$firstColor,v.$whiteColor,v.$firstAlphaColor);
 }
 
+.boton-logout{
+  @include m.boton(v.$blackColor,v.$whiteColor,v.$blackAlphaColor);
+  margin: 0;
+}
+
 /* Componentes boton animacion icono desplazado */
 .boton-crear{
   @include m.botonCrud(v.$firstColor, v.$whiteColor,v.$whiteColor,v.$secondColor);

@@ -23,7 +23,7 @@
 </div>
 
 <div class="campo expand-2">
-  <label for="email">Rol</label>
+  <label for="rol">Rol</label>
   <select id="rol" name="usuario[rol]">
     <option selected value="">-- Seleccione --</option>
     <?php foreach($roles as $rol): ?>

@@ -76,8 +76,11 @@ class ActiveRecord{
     $atributos = [];
     foreach (static::$columnasDB as $columna) {
       if ($columna === 'id') continue;
+
       $atributos[$columna] = $this->$columna;
+      
     }
+
     return $atributos;
   }
 
@@ -151,7 +154,8 @@ class ActiveRecord{
     $resultado = self::consultarSQL($query);
     // debuguear($resultado);
 
-    return array_shift($resultado);
+
+    return (count($resultado) === 1) ? array_shift($resultado) : $resultado;
   }
 
   //? crea un nuevo registro
@@ -167,6 +171,8 @@ class ActiveRecord{
     $query .= join(", ", array_values($atributos));
     $query .= " ) ";
     // debuguear($query);
+
+    // return json_encode(['query' => $query]);
 
     //* Ejecutando la consulta y devolviendo la cantidad de filas afectadas
     $resultado = self::$db->exec($query);

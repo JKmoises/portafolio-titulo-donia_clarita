@@ -9,7 +9,7 @@
     <?php include_once __DIR__ . "/../templates/detalle-habitacion.php"; ?>
     
     <form class="formulario formulario-crud box-shadow-1" method="POST">
-      <!-- <?php include_once __DIR__ . "/../templates/formulario/formulario-cliente.php"; ?> -->
+    <?php include_once __DIR__ . "/../templates/formulario/formulario-reserva.php"; ?>
     </form>
   </section>
 
