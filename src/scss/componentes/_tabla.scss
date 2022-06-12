@@ -67,3 +67,14 @@ table.tabla {
     background-color: v.$firstAlphaColor;
   }
 }
+
+.tabla-ventas{
+  thead{
+    background-color: v.$yellowAlphaColor;
+  }
+
+  li{
+    text-align: left;
+    margin-left: 1rem;
+  }
+}

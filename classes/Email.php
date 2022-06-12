@@ -16,7 +16,7 @@ class Email{
 
   //? Envía la confirmación del email 
   public function enviarConfirmacion(){
-    //* Crear Objeto de email
+    //* Creando Objeto de email
     $mail = new PHPMailer();
 
     //? Configurando SMTP que es el protocolo para envio de emails

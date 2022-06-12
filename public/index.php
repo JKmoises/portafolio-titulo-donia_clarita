@@ -10,6 +10,7 @@ use Controllers\LoginController;
 use Controllers\ReservarController;
 use Controllers\ReservasController;
 use Controllers\UsuarioController;
+use Controllers\VentasController;
 use MVC\Router;
 
 $router = new Router();
@@ -81,8 +82,15 @@ $router->get('/reservar',[ReservarController::class,'index']);
 
 //* API de Reservar
 $router->get('/api/habitaciones',[ApiController::class,'index']); 
-$router->post('/api/reservas',[APIController::class,'guardar']); 
+$router->post('/api/reservas',[APIController::class,'guardar']);
 
+
+//* Ventas
+$router->get('/ventas', [VentasController::class, 'listar']);
+
+
+//* Reportes
+$router->get('/ventas/reportes',[VentasController::class,'mostrarVentasPdf']);
 
 
 //* Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

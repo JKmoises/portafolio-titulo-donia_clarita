@@ -1,0 +1,12 @@
+@use 'base/variables' as v;
+
+.titulo-reportes{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: calc(v.$separacion * 4);
+
+  .boton-reporte{
+    margin: 0;
+  }
+}

@@ -49,7 +49,7 @@ class Router{
     }
   }
 
-  //? Renderiza una vist  a(HTML) y permite pasar datos a esta
+  //? Renderiza una vista  a(HTML) y permite pasar datos a esta
   public function render($view,$datos = []){
     // debuguear($datos);
 
@@ -66,4 +66,5 @@ class Router{
     $contenido = ob_get_clean(); 
     include_once __DIR__ . '/views/layout.php'; # Importando layout que contiene el header y el footer
   }
+
 }
