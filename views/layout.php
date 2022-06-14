@@ -17,8 +17,8 @@
 <body>
 
   <?php echo $contenido; ?>
-
-  <?php echo $script ?? '';  # Carga el script de JS sino existe no se carga ?>
+  <?php echo $script ?? '';  # Carga el script de JS sino existe no se carga 
+  ?>
 </body>
 
 </html>

@@ -40,8 +40,6 @@
 
     .section {
       background-color: #F3F3F3;
-      padding-top: 5rem;
-      grid-column: 2 / 3;
     }
 
     .p-t-0 {
@@ -52,9 +50,12 @@
       background-color: #b8a11e80;
     }
 
+    .tabla-ventas li {
+      text-align: left; 
+      margin-left: 1.5rem;
+    }
 
     table.tabla {
-      margin-top: 4rem;
       width: 100%;
       border-spacing: 0;
     }
@@ -65,6 +66,8 @@
       text-transform: uppercase;
       font-weight: 300;
       font-size: 1.8rem;
+      border: thin solid #666;
+      border-bottom: thin solid #CCCCCC;
     }
 
     table.tabla tbody {
@@ -76,11 +79,15 @@
       border: thin solid #CCCCCC;
     }
 
-
-    td {
+    table.tabla td {
       padding: 1rem;
       padding-right: 0;
       font-size: 1.9rem;
+    }
+
+    .total-ventas {
+      font-size: 3rem;
+      padding: 2rem 0;
     }
   </style>
 </head>
@@ -102,6 +109,7 @@
       </thead>
 
       <tbody>
+        <?php $total = 0; ?>
         <!-- Mostrar los resultados(filas de las tablas) -->
         <?php foreach ($ventas as $venta) : ?>
           <tr>
@@ -120,12 +128,19 @@
             <td>$<?php echo $venta->total ?></td>
             <td><?php echo $venta->cliente_id ?></td>
           </tr>
+
+          <?php $total += intval($venta->total); ?>
         <?php endforeach; ?>
 
       </tbody>
     </table>
 
   </section>
+
+  <div class="total-ventas">
+    <b>Total de Ventas:</b>
+    $<?php echo $total; ?>
+  </div>
 </body>
 
 </html>

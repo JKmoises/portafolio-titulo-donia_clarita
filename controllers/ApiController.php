@@ -26,7 +26,17 @@ class ApiController{
 
   
     echo json_encode($respuesta);
+  }
 
+  public static function datosVentaPorMes(){
+    $ventasMes = OrdenCompra::group(
+      "TO_CHAR(FECHA_SALIDA,'MM') MES, SUM(TOTAL) VENTA_MES",
+      "TO_CHAR(FECHA_SALIDA,'MM')",
+      "MES"
+    );
+    // debuguear($ventasMes);
 
+    //* Retornamos una respuesta
+    echo json_encode($ventasMes);
   }
 }

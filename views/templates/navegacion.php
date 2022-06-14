@@ -15,7 +15,8 @@
 <?php 
   # Cargando JS en esta vista
   $script = '
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script src="/build/js/app.js"></script>
   ';  
 ?>

@@ -220,7 +220,7 @@ function nombreCliente(){
   // console.log(reserva);
 }
 
-function seleccionarFechaLlegada(){
+function  seleccionarFechaLlegada(){
   const inputFechaLlegada = document.querySelector('#fecha_llegada');
   // console.log(inputFecha);
   inputFechaLlegada.addEventListener('input',(e) => {
@@ -240,16 +240,11 @@ function seleccionarFechaLlegada(){
     // console.log(hora);
     // console.log(e.target.value);
 
-    //* Si la fecha seleccionada es sábado y domingo o la hora está en el rango de 10:00 a 22:00 ...
-    if ([6,0].includes(dia)) { 
-      mostrarAlerta('Fines de semana no permitidos','error','.formulario');
-      e.target.value = ''; //* Dejando el input fecha vacío
-
-    }else if(hora < 10 || hora > 22){
+    //* Si la hora está en el rango de 10:00 a 22:00 ...
+    if(hora < 10 || hora > 22){
       mostrarAlerta('Hora no válida','error','.formulario');
       e.target.value = ''; //* Dejando el input fecha vacío
-
-    }else{ //* Si no es sábado ni domingo...
+    }else{ //* Si no...
       reserva.fechaLlegada = horaFecha; //* Guardando fecha y hora seleccionada en objeto 'reserva'
     }
   
@@ -276,19 +271,15 @@ function seleccionarFechaSalida(){
     // console.log(hora);
     // console.log(e.target.value);
 
-    //* Si la fecha seleccionada es sábado y domingo o la hora está en el rango de 10:00 a 22:00 ...
-    if ([6,0].includes(dia)) { 
-      mostrarAlerta('Fines de semana no permitidos','error','.formulario');
-      e.target.value = ''; //* Dejando el input fecha vacío
-
-    }else if(hora < 10 || hora > 22){
+    //* Si la hora está en el rango de 10:00 a 22:00 ...
+    if(hora < 10 || hora > 22){
       mostrarAlerta('Hora no válida','error','.formulario');
       e.target.value = ''; //* Dejando el input fecha vacío
 
     }else{ //* Si no es sábado ni domingo...
       reserva.fechaSalida = horaFecha; //* Guardando fecha y hora seleccionada en objeto 'reserva'
     }
-  
+    
   });
 }
 

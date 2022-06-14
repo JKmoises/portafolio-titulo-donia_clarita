@@ -5,13 +5,107 @@ document.addEventListener('DOMContentLoaded',() => iniciarApp());
 
 
 function iniciarApp(){
-
   quitarAlerta(); //? Quita una alerta despues de unos segundos
   mostrarConfirmacionEliminar(); //? Muestra Modal de confirmacion 
   colapsarMenu(); //? Colapsa el menu de navegación
+  mostrarEstadisticas(); //? Muestra los graficos estadisticos
 } 
 
+// TODO: Funcionalidades de Reportes estadisticos
+function mostrarEstadisticas() {
+  if (location.pathname === '/estadisticas') {
+    mostrarGraficaVentas();
+  }
+}
 
+async function mostrarGraficaVentas() {
+  try {
+    const url = 'http://127.0.0.1:3000/api/ventas';
+    const res = await fetch(url);
+    const json = await res.json();
+    // console.log(json);
+
+    const meses = json.map(({ MES }) => {
+      let mes = parseInt(MES);
+
+      switch (mes) {
+        case 1:
+          return 'Enero';
+        case 2:
+          return 'Febrero';
+        case 3:
+          return 'Marzo';
+        case 4:
+          return 'Abril';
+        case 5:
+          return 'Mayo';
+        case 6:
+          return 'Junio';
+        case 7:
+          return 'Julio';
+        case 8:
+          return 'Agosto';
+        case 9:
+          return 'Septiembre';
+        case 10:
+          return 'Octubre';
+        case 11:
+          return 'Noviembre';
+        case 12:
+          return 'Diciembre';
+        default:
+          break;
+      }
+
+    });
+    // console.log(meses);
+
+    const ventasMes = json.map(({ VENTA_MES }) => parseInt(VENTA_MES));
+    // console.log(ventasMes);
+
+
+
+    let datosVenta = [
+      'graficoVentas',
+      'line',
+      meses,
+      'Ventas por mes',
+      ventasMes,
+      '#b8a11e',
+      '#b8a11e80'
+    ];
+
+    mostrarGrafica(...datosVenta);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function mostrarGrafica(chart,type,labels,label,data,backgroundColor,borderColor) {
+  const ctx = document.getElementById(chart).getContext('2d');
+  // console.log(ctx);
+  const myChart = new Chart(ctx, {
+    type,
+    data: {
+      labels,
+      datasets: [{
+        label,
+        data,
+        backgroundColor,
+        borderColor,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  
+}
 
 
 // TODO: Funcionalidades de Reservas de Admin 

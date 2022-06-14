@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\ApiController;
 use Controllers\ClienteController;
+use Controllers\EstadisticasController;
 use Controllers\HabitacionController;
 use Controllers\HuespedController;
 use Controllers\LoginController;
@@ -84,6 +85,9 @@ $router->get('/reservar',[ReservarController::class,'index']);
 $router->get('/api/habitaciones',[ApiController::class,'index']); 
 $router->post('/api/reservas',[APIController::class,'guardar']);
 
+//* API para gráficos estadisticos 
+$router->get('/api/ventas',[ApiController::class, 'datosVentaPorMes']); 
+
 
 //* Ventas
 $router->get('/ventas', [VentasController::class, 'listar']);
@@ -91,6 +95,9 @@ $router->get('/ventas', [VentasController::class, 'listar']);
 
 //* Reportes
 $router->get('/ventas/reportes',[VentasController::class,'mostrarVentasPdf']);
+
+//* Estadísticas 
+$router->get('/estadisticas',[EstadisticasController::class,'mostrarEstadisticas']);
 
 
 //* Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

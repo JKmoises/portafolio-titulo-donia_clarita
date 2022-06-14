@@ -6,9 +6,9 @@
     </summary>
 
     <article class="opciones">
-      <a href="#">
+      <a href="/estadisticas">
         <img src="../build/img/statistics-icon.svg" alt="icono estadísticas">
-        Informes
+        Reportes
       </a>
     </article>
   </details>

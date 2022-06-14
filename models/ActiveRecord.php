@@ -47,19 +47,20 @@ class ActiveRecord{
       $array[] = static::crearObjeto($registro);
     }
     // debuguear($array);
-
+    
     //* liberar la memoria
     $resultado->closeCursor();
-
+    
     //* retornar los resultados
     return $array;
   }
-
+  
   //? Crea el objeto en memoria que es igual al de la BD
   protected static function crearObjeto($registro){
     $objeto = new static;
-    
     // debuguear($objeto);
+    // echo '<pre>'; var_dump($registro); echo '</pre>';
+    
     foreach ($registro as $key => $value) {
       $key = strtolower($key);
 
@@ -156,6 +157,33 @@ class ActiveRecord{
 
 
     return (count($resultado) === 1) ? array_shift($resultado) : $resultado;
+  }
+
+  //? Agrupa un conjunto de filas segun el calculo de un solo resultado por grupo 
+  public static function group($columnas,$agrupador,$ordenador = null){
+    $query = "SELECT " .$columnas. " FROM " . static::$tabla;
+    $query .= " GROUP BY " . $agrupador;
+    $query .= " ORDER BY " . $ordenador;
+    // debuguear($query);
+
+    //* Preparando consulta
+    $resultado = self::$db->prepare($query);
+    //* Ejecutando consulta 
+    $resultado->execute();
+    // debuguear($resultado);
+
+    //* Iterar los resultados
+    $array = [];
+    while ($registro = $resultado->fetch(PDO::FETCH_ASSOC)) {
+      $array[] = $registro;
+    }
+    // debuguear($array);
+
+    //* liberar la memoria
+    $resultado->closeCursor();
+
+    //* retornar los resultados
+    return $array;
   }
 
   //? crea un nuevo registro
