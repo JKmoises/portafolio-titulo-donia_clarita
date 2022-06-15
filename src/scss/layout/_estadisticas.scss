@@ -1,7 +1,34 @@
 @use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.titulo-dashboard{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: .5rem;
+
+  .text-left{
+    margin: 0;
+  }
+
+  p{
+    color: v.$grayDarkColor;
+  }
+}
 
 .estadisticas{
-  @include m.grid(3,0rem);
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-items: center;
+  grid-template-areas: 
+  "grafico-ventas grafico-ventas grafico-ventas"
+  ". . .";
+
   max-width: 100%;
+
+  .grafico-ventas{
+    grid-area: grafico-ventas;
+    width: 60%;
+  }
 
 }

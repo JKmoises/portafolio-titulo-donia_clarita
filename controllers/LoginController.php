@@ -41,7 +41,7 @@ class LoginController{
             
             //* Redireccionamiento
             if ($usuario->rol === "Admin") { # Si el usuario autenticado es admin...
-              header('Location: /usuarios'); 
+              header('Location: /estadisticas'); 
             }else if($usuario->rol === "Cliente"){ 
               header('Location: /reservar'); 
             }else if ($usuario->rol === "Empleado") {

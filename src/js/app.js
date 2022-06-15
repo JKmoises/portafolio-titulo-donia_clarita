@@ -1,4 +1,8 @@
-
+const ls = localStorage;
+const $panelAdmin = document.querySelector('.panel-admin');
+const $btnMenu = document.querySelector('.boton-menu');
+const $opcionesMenu = document.querySelectorAll('.navegacion summary');
+let textoOpciones = [];
 
 document.addEventListener('DOMContentLoaded',() => iniciarApp());
 
@@ -8,6 +12,7 @@ function iniciarApp(){
   quitarAlerta(); //? Quita una alerta despues de unos segundos
   mostrarConfirmacionEliminar(); //? Muestra Modal de confirmacion 
   colapsarMenu(); //? Colapsa el menu de navegación
+  storageMenu(); //? Cargando Storage del colapso del menu
   mostrarEstadisticas(); //? Muestra los graficos estadisticos
 } 
 
@@ -145,28 +150,26 @@ function mostrarConfirmacionEliminar(){
 }
 
 function colapsarMenu(){
-  const $panelAdmin = document.querySelector('.panel-admin');
-  const $btnMenu = document.querySelector('.boton-menu');
-  const $opcionesMenu = document.querySelectorAll('.navegacion summary');
-  let textoOpciones = [];
   
   hoverBtnMenu($btnMenu,'&larr;','Menú de Administración'); 
-  
-  $btnMenu.addEventListener('click',e => {
-    $panelAdmin.style.gridTemplateColumns = '8% 92%';
+
+  $btnMenu.addEventListener('click', e => {
     
     $opcionesMenu.forEach(($opcionMenu,i) => {
       textoOpciones = [...textoOpciones,$opcionMenu.lastChild.textContent];
       
       if ($opcionMenu.parentElement.classList.contains('active')) {
-        hoverBtnMenu($btnMenu,'&larr;','Menú de Administración'); 
-        $panelAdmin.style.gridTemplateColumns = '20% 80%';
+        hoverBtnMenu($btnMenu, '&larr;', 'Menú de Administración'); 
+        $panelAdmin.style.gridTemplateColumns = '20% 80%';  
+        ls.setItem('menuColapsado','20% 80%');
         $opcionMenu.lastChild.textContent = textoOpciones[i];
         $opcionMenu.parentElement.classList.remove('active');
         $opcionMenu.nextElementSibling.classList.remove('active');
         
       } else {
-        hoverBtnMenu($btnMenu,'&rarr;','&rarr;'); 
+        hoverBtnMenu($btnMenu, '&rarr;', '&rarr;'); 
+        $panelAdmin.style.gridTemplateColumns = '8% 92%';
+        ls.setItem('menuColapsado', '8% 92%');
         $opcionMenu.lastChild.textContent = '';
         $opcionMenu.parentElement.classList.add('active')
         $opcionMenu.nextElementSibling.classList.add('active');
@@ -175,7 +178,45 @@ function colapsarMenu(){
     });
   });
 
+}
 
+function storageMenu() {
+
+  if (ls.getItem("menuColapsado") === null) { //si no existe la variable 'menuColapsado' en el localStorage
+    ls.setItem('menuColapsado', '20% 80%');
+  }
+
+
+  if (ls.getItem("menuColapsado") === "20% 80%") { 
+    $opcionesMenu.forEach(($opcionMenu, i) => {
+      textoOpciones = [...textoOpciones, $opcionMenu.lastChild.textContent];
+      
+      hoverBtnMenu($btnMenu, '&larr;', 'Menú de Administración');
+      $panelAdmin.style.gridTemplateColumns = '20% 80%';
+      ls.setItem('menuColapsado', '20% 80%');
+      $opcionMenu.lastChild.textContent = textoOpciones[i];
+      $opcionMenu.parentElement.classList.remove('active');
+      $opcionMenu.nextElementSibling.classList.remove('active');
+    });
+    
+  }
+  
+  if (ls.getItem("menuColapsado") === "8% 92%") {
+    $btnMenu.innerHTML = '&rarr;';
+    
+    $opcionesMenu.forEach(($opcionMenu, i) => {
+      textoOpciones = [...textoOpciones, $opcionMenu.lastChild.textContent];
+
+      hoverBtnMenu($btnMenu, '&rarr;', '&rarr;');
+      $panelAdmin.style.gridTemplateColumns = '8% 92%';
+      ls.setItem('menuColapsado', '8% 92%');
+      $opcionMenu.lastChild.textContent = '';
+      $opcionMenu.parentElement.classList.add('active')
+      $opcionMenu.nextElementSibling.classList.add('active');
+    });
+  
+  }
+  console.log(textoOpciones);
 }
 
 function hoverBtnMenu($elemento,textButtonHover,textButton){
@@ -187,8 +228,7 @@ function hoverBtnMenu($elemento,textButtonHover,textButton){
     e.target.style.fontWeight = '700';
     e.target.innerHTML = textButtonHover;
       
-    
-    
+  
   });
   
   //* Evento que se emite al sacar el cursor del elemento

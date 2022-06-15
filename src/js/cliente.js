@@ -435,7 +435,7 @@ async function reservarHabitacion(){
       .then(() => {
         setTimeout(() => {
           location.reload(); //* Recargando página
-        }, 3000);
+        }, 2000);
       });
     }
   } catch (error) {
