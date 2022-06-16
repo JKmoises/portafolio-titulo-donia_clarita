@@ -160,7 +160,7 @@ class ActiveRecord{
   }
 
   //? Agrupa un conjunto de filas segun el calculo de un solo resultado por grupo 
-  public static function group($columnas,$agrupador,$ordenador = null){
+  public static function group($columnas,$agrupador,$ordenador = "NULL"){
     $query = "SELECT " .$columnas. " FROM " . static::$tabla;
     $query .= " GROUP BY " . $agrupador;
     $query .= " ORDER BY " . $ordenador;

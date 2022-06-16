@@ -3,7 +3,6 @@ namespace Controllers;
 
 use Model\Habitacion;
 use Model\OrdenCompra;
-use MVC\Router;
 
 class ApiController{
   
@@ -38,5 +37,17 @@ class ApiController{
 
     //* Retornamos una respuesta
     echo json_encode($ventasMes);
+  }
+
+  public static function nroHabitacionesEstado(){
+    $habitacionesEstado = Habitacion::group(
+      "ESTADO, COUNT(ESTADO) NRO_HABITACIONES",
+      "ESTADO",
+      "ESTADO",
+    );
+    // debuguear($habitacionesEstado);
+
+    // * Retornamos una respuesta
+    echo json_encode($habitacionesEstado);
   }
 }

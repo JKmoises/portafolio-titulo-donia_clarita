@@ -4,7 +4,7 @@
 .titulo-dashboard{
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: calc( v.$separacion / 4);
   margin: .5rem;
 
   .text-left{
@@ -20,15 +20,22 @@
   display: grid;
   grid-template-columns: repeat(3,1fr);
   justify-items: center;
+  justify-content: center;
+  gap: calc( v.$separacion / 2);
   grid-template-areas: 
   "grafico-ventas grafico-ventas grafico-ventas"
-  ". . .";
+  "graficos-torta-barra graficos-torta-barra graficos-torta-barra";
 
   max-width: 100%;
 
   .grafico-ventas{
     grid-area: grafico-ventas;
-    width: 60%;
+  }
+  
+  .graficos-torta-barra{
+    display: flex;
+    gap: calc( v.$separacion / 2);
+    grid-area: graficos-torta-barra;
   }
 
 }

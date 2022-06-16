@@ -52,7 +52,7 @@ class Email{
         
         <p>
           Presiona aquí 
-          <a href='http://localhost:3000/confirmar-cuenta?token={$this->token}'>Confirmar Cuenta</a>
+          <a href='http://127.0.0.1:3000/confirmar-cuenta?token={$this->token}'>Confirmar Cuenta</a>
         </p>
 
         <p>Si tu no solicitaste esta cuenta, puedes ignorar el mensaje</p>

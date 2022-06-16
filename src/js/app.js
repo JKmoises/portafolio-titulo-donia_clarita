@@ -20,8 +20,82 @@ function iniciarApp(){
 function mostrarEstadisticas() {
   if (location.pathname === '/estadisticas') {
     mostrarGraficaVentas();
+    mostrarGraficaUsuarios();
+    mostrarGraficaEstados();
   }
 }
+
+async function mostrarGraficaEstados() {
+  try {
+     const url = 'http://127.0.0.1:3000/api/estados';
+     const res = await fetch(url);
+     const json = await res.json();
+    // console.log(json);
+    
+    const estados = json.map(({ ESTADO }) => ESTADO);
+    // console.log(estados);
+
+    const nroHabitaciones = json.map(({ NRO_HABITACIONES }) => parseInt(NRO_HABITACIONES));
+    // console.log(nroHabitaciones);
+
+
+
+    let datosEstados = [
+      'graficoEstados',
+      'doughnut',
+      estados,
+      'N° habitaciones por Estado',
+      nroHabitaciones,
+      [
+        '#329f00',
+        '#b8a11e',
+        '#cb0000',
+        '#2020d9'
+      ],
+      '#fff'
+    ];
+
+    mostrarGrafica(...datosEstados);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function mostrarGraficaUsuarios() {
+  try {
+   /*  const url = 'http://127.0.0.1:3000/api/usuarios';
+    const res = await fetch(url);
+    const json = await res.json(); */
+    // console.log(json);
+
+
+
+    let datosUsuarios = [
+      'graficoUsuarios',
+      'bar',
+      ['Admin','Cliente','Empleado','Proveedor'],
+      'N° de Usuarios según su Rol',
+      [1,5,3,2],
+      [
+        '#14192D80',
+        '#00808080',
+        '#CD5C5C80',
+        '#222'
+      ],
+      [
+        '#14192D',
+        '#008080',
+        '#CD5C5C',
+        '#222'
+      ]
+    ];
+
+    mostrarGrafica(...datosUsuarios);
+  } catch (error) {
+    console.log(error);
+  }
+}
+  
 
 async function mostrarGraficaVentas() {
   try {
@@ -77,7 +151,14 @@ async function mostrarGraficaVentas() {
       'Ventas por mes',
       ventasMes,
       '#b8a11e',
-      '#b8a11e80'
+      '#b8a11e80',
+      {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+      }
     ];
 
     mostrarGrafica(...datosVenta);
@@ -86,7 +167,7 @@ async function mostrarGraficaVentas() {
   }
 }
 
-function mostrarGrafica(chart,type,labels,label,data,backgroundColor,borderColor) {
+function mostrarGrafica(chart,type,labels,label,data,backgroundColor,borderColor,options) {
   const ctx = document.getElementById(chart).getContext('2d');
   // console.log(ctx);
   const myChart = new Chart(ctx, {
@@ -101,14 +182,10 @@ function mostrarGrafica(chart,type,labels,label,data,backgroundColor,borderColor
         borderWidth: 1
       }]
     },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
+    options,
   });
+
+  // return myChart;
   
 }
 
@@ -216,7 +293,7 @@ function storageMenu() {
     });
   
   }
-  console.log(textoOpciones);
+  // console.log(textoOpciones);
 }
 
 function hoverBtnMenu($elemento,textButtonHover,textButton){
