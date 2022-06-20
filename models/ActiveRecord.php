@@ -186,6 +186,63 @@ class ActiveRecord{
     return $array;
   }
 
+  //? Devuelve el número de datos que se requiera de una tabla segun el valor 
+  public static function count($nombre,$columna, $valor = 'NULL'){
+    $query = "SELECT COUNT(" .$columna. ") AS \"" .$nombre. "\" FROM " . static::$tabla;
+
+    if ($valor !== 'NULL') {
+      $query .= " WHERE " . $columna . " = '" . $valor . "'";
+    }
+    //  debuguear($query);
+
+    //* Preparando consulta
+    $resultado = self::$db->prepare($query);
+    //* Ejecutando consulta 
+    $resultado->execute();
+    // debuguear($resultado);
+
+    //* Iterar los resultados
+    $array = [];
+    while ($registro = $resultado->fetch(PDO::FETCH_ASSOC)) {
+      $array[] = $registro;
+    }
+    // debuguear($array);
+
+    //* liberar la memoria
+    $resultado->closeCursor();
+
+    //* retornar los resultados
+    return array_shift($array);
+  }
+
+  public static function sum($nombre, $columna, $valor = 'NULL'){
+    $query = "SELECT SUM(" . $columna . ") AS \"" . $nombre . "\" FROM " . static::$tabla;
+
+    if ($valor !== 'NULL') {
+      $query .= " WHERE " . $columna . " = '" . $valor . "'";
+    }
+    // debuguear($query);
+
+    //* Preparando consulta
+    $resultado = self::$db->prepare($query);
+    //* Ejecutando consulta 
+    $resultado->execute();
+    // debuguear($resultado);
+
+    //* Iterar los resultados
+    $array = [];
+    while ($registro = $resultado->fetch(PDO::FETCH_ASSOC)) {
+      $array[] = $registro;
+    }
+    // debuguear($array);
+
+    //* liberar la memoria
+    $resultado->closeCursor();
+
+    //* retornar los resultados
+    return array_shift($array);
+  }
+
   //? crea un nuevo registro
   public function crear(){
     //* Sanitizar los datos

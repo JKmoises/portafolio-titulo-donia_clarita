@@ -17,12 +17,10 @@
 }
 
 .estadisticas{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
+  @include m.grid(3,v.$separacion / 2);
+
   justify-items: center;
-  justify-content: center;
-  gap: calc( v.$separacion / 2);
-  grid-template-areas: 
+  grid-template-areas:
   "grafico-ventas grafico-ventas grafico-ventas"
   "graficos-torta-barra graficos-torta-barra graficos-torta-barra";
 
@@ -31,7 +29,7 @@
   .grafico-ventas{
     grid-area: grafico-ventas;
   }
-  
+
   .graficos-torta-barra{
     display: flex;
     gap: calc( v.$separacion / 2);

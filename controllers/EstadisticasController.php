@@ -1,6 +1,8 @@
 <?php
 namespace Controllers;
 
+use Model\OrdenCompra;
+use Model\Usuario;
 use MVC\Router;
 
 class EstadisticasController{
@@ -9,10 +11,20 @@ class EstadisticasController{
     session_start();
 
     isAuth(); # Protegiendo esta ruta
+
+    $registrados = Usuario::count('registrados','*');
+    $ganancias = OrdenCompra::sum('ganancias','total');
+    $clientes = Usuario::count('total_clientes','rol', 'Cliente');
+    // debuguear($registrados);
+    // debuguear($ganancias);
+    // debuguear($clientes);
     
     $router->render('/estadisticas/reportes',[
       'nombre' => $_SESSION['nombre'],
       'rol' => $_SESSION['rol'],
+      'registrados' => $registrados['registrados'],
+      'ganancias' => $ganancias['ganancias'],
+      'clientes' => $clientes['total_clientes'],
     ]);
   }
 }

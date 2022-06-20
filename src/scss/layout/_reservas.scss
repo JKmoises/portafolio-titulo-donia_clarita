@@ -12,10 +12,8 @@
   align-items: center;
   color: v.$whiteColor;
   padding-top: 1.5rem;
+  pointer-events: none;
 
-  &:hover{
-    opacity: .8;
-  }
 
   .icono{
     width: calc(v.$separacion + 1rem);
@@ -30,11 +28,11 @@
     font-weight: v.$delgada;
   }
 
-  
+
   .estado{
     text-transform: uppercase;
     padding: .5rem 0;
-    
+
   }
 
   .precio,
@@ -48,7 +46,7 @@
 .disponible{
   .estado{
     background-color: darken(v.$greenColor, 10%);
-    
+
   }
 }
 

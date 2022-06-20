@@ -12,7 +12,7 @@ class VentasController{
 
     isAuth(); # Protegiendo esta ruta
 
-    $ventas =OrdenCompra::all('fecha_llegada'); # Guardando todos los registros de las ventas
+    $ventas = OrdenCompra::all('fecha_llegada'); # Guardando todos los registros de las ventas
     // debuguear($ventas);
 
 

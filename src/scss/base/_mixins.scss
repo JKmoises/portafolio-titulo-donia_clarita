@@ -138,3 +138,11 @@
   gap: $espaciado;
   grid-template-columns: repeat($columnas, 1fr);
 }
+
+@mixin cardReporteColor($color) {
+  background-color: $color;
+
+  .btn-reporte{
+    background-color: lighten($color, 10%);
+  }
+}
