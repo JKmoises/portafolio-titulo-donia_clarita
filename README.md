@@ -2,7 +2,7 @@
 
 Proyecto MVC desarrollado en __PHP, OracleSQL, SASS, JS y Gulp__. Este es un sitio web con un panel de administración para gestionar un hostal para empresas.
 
-- Comandos para correr el proyecto en local:
+- Comandos para instalar dependencias de desarrollo:
   - `npm install`
   - `composer update`
 

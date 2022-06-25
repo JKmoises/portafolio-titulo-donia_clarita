@@ -98,7 +98,7 @@
   height: 3em;
   width: 12rem;
   margin: calc(v.$separacion / 2) 0;
-  margin-left: v.$separacion / 4;
+  margin-left: calc(v.$separacion / 4);
   padding: 1rem;
   align-items: center;
   justify-content: center;

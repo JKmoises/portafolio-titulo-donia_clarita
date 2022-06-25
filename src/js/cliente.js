@@ -33,6 +33,7 @@ function iniciarApp(){
 
   mostrarResumen(); //* Muestra el resumen de la reserva
 
+
 } 
 
 // TODO: Funcionalidades de Reservas de Cliente

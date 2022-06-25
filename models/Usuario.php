@@ -17,6 +17,7 @@ class Usuario extends ActiveRecord{
     'confirmado',
     'token',
     'rol',
+    'empresa'
   ]; 
 
   public $id;
@@ -28,6 +29,7 @@ class Usuario extends ActiveRecord{
   public $confirmado;
   public $token;
   public $rol;
+  public $empresa;
 
 
   public function __construct($args = []){
@@ -40,6 +42,7 @@ class Usuario extends ActiveRecord{
     $this->confirmado = $args['confirmado'] ?? '0';
     $this->token = $args['token'] ?? '';
     $this->rol = $args['rol'] ?? 'Cliente';
+    $this->empresa = $args['empresa'] ?? '';
   }
 
 
@@ -74,6 +77,11 @@ class Usuario extends ActiveRecord{
 
     if (!$this->rol) {
       self::$alertas['error'][] = 'El Rol es Obligatorio';
+    
+    }
+
+    if (!$this->empresa) {
+      self::$alertas['error'][] = 'La empresa es Obligatoria';
     }
 
 

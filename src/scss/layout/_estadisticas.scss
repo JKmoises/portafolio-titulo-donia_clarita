@@ -17,7 +17,7 @@
 }
 
 .estadisticas{
-  @include m.grid(3,v.$separacion / 2);
+  @include m.grid(3,calc(v.$separacion / 2));
 
   justify-items: center;
   grid-template-areas:

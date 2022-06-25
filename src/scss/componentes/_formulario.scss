@@ -9,10 +9,9 @@
   align-items: center;
   margin-bottom: 2rem;
 
-
   label,
   input{
-    flex: 0 0 12rem;
+    flex: 0 0 13rem;
     font-size: 2rem;
   }
   
@@ -28,6 +27,17 @@
     font-size: 2rem;
   }
 
+  .campo-radios{
+    display: flex;
+    gap: 2rem;
+    width: 100%;
 
+    .opcion{
+
+      & > label{
+        margin-right: 1rem;
+      }
+    }
+  }
   
 }
