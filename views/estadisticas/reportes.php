@@ -44,7 +44,6 @@
         </div>
 
         <a class="btn-reporte text-center">
-          <h4>Generar Reporte</h4>
         </a>
       </article>
 
@@ -65,7 +64,6 @@
         </div>
 
         <a class="btn-reporte text-center">
-          <h4>Generar Reporte</h4>
         </a>
       </article>
 
@@ -84,7 +82,6 @@
         </div>
 
         <a class="btn-reporte text-center">
-          <h4>Generar Reporte</h4>
         </a>
       </article>
     </section>

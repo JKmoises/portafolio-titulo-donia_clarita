@@ -21,8 +21,8 @@
       <thead>
         <tr>
           <th>Rut</th>
-          <th>Empresa</th>
           <th>Email</th>
+          <th>Teléfono</th>
           <th>Dirección</th>
           <th>Acciones</th>
         </tr>
@@ -33,8 +33,8 @@
         <?php foreach ($clientes as $cliente): ?>
           <tr>
             <td><?php echo $cliente->rut_empresa . "-" . $cliente->dv; ?></td>
-            <td><?php echo $cliente->empresa; ?></td>
             <td><?php echo $cliente->email; ?></td>
+            <td><?php echo $cliente->telefono; ?></td>
             <td><?php echo $cliente->direccion ?? 'No especificado'; ?></td>
             <td>
               <form method="POST" class="formulario-eliminar w-100" action="/clientes/eliminar">

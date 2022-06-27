@@ -88,6 +88,7 @@ $router->post('/api/reservas',[APIController::class,'guardar']);
 //* API para gráficos estadisticos 
 $router->get('/api/ventas',[ApiController::class, 'datosVentaPorMes']); 
 $router->get('/api/estados',[ApiController::class, 'nroHabitacionesEstado']); 
+$router->get('/api/usuarios',[ApiController::class, 'nroUsuariosRol']); 
 
 
 //* Ventas

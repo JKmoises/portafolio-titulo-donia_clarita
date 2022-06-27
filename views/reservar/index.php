@@ -32,32 +32,32 @@
         <form class="formulario">
           <div class="campo">
             <label for="nombre">Nombre</label>
-            <input id="nombre" type="text" placeholder="Tu Nombre"
-            value="<?php echo s($nombre); ?>" readonly>
+            <input id="nombre" type="text" placeholder="Tu Nombre" value="<?php echo s($nombre); ?>" readonly>
           </div>
 
           <div class="campo">
             <label for="fecha_llegada">Fecha Entrada</label>
-            <input id="fecha_llegada" type="datetime-local" min="<?php echo date('Y-m-d H:i',strtotime('+1 day')); ?>">
+            <input id="fecha_llegada" type="datetime-local" min="<?php echo date('Y-m-d H:i', strtotime('+1 day')); ?>">
           </div>
 
           <div class="campo">
             <label for="fecha_salida">Fecha Salida</label>
-            <input id="fecha_salida" type="datetime-local" min="<?php echo date('Y-m-d H:i',strtotime('+1 day')); ?>">
+            <input id="fecha_salida" type="datetime-local" min="<?php echo date('Y-m-d H:i', strtotime('+1 day')); ?>">
           </div>
 
           <div class="campo">
-            <label for="empresa">Empresa</label>
+            <label for="empresa">Email Empresa</label>
+
             <select id="empresa" name="empresa">
               <option selected value="">-- Seleccione --</option>
-              <?php foreach($clientes as $cliente): ?>
+              <?php foreach ($clientes as $cliente) : ?>
                 <option value="<?php echo s($cliente->rut_empresa); ?>">
-                  <?php echo s($cliente->empresa); ?>
+                  <?php echo s($cliente->email); ?>
                 </option>
               <?php endforeach; ?>
             </select>
           </div>
-         
+
         </form>
       </div>
 
@@ -76,10 +76,10 @@
   </div>
 </div>
 
-<?php 
-  # Cargando JS en esta vista
-  $script = '
+<?php
+# Cargando JS en esta vista
+$script = '
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="build/js/cliente.js"></script>
-  ';  
+  ';
 ?>

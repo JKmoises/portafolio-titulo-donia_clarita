@@ -199,16 +199,17 @@ function seleccionarServicio(servicio){
 
 }
 
-function idCliente(){
+function idCliente() {
   const selectEmpresa = document.querySelector('#empresa');
-  
-  selectEmpresa.addEventListener('input',e => {
+  // console.log(selectEmpresa);
+
+  selectEmpresa.addEventListener('input', e => {
     const rut = parseInt(e.target.value);
-    // console.log(rut);
-    
+    console.log(rut);
+
     if (!rut) {
-      mostrarAlerta('La empresa es obligatoria','error','.formulario');
-    }else{
+      mostrarAlerta('El email de empresa es obligatorio', 'error', '.formulario');
+    } else {
       reserva.id = rut;
     }
   });
@@ -398,9 +399,9 @@ async function reservarHabitacion(){
   const {id, fechaLlegada, fechaSalida, servicios, subtotal, total} = reserva; 
 
   const tipoServicios = servicios.map(servicio => `Habitación ${servicio.tipo}`).join(', ');
-  // console.log(tipoServicios);
+  console.log(tipoServicios);
 
-  const datos = new FormData();
+  const datos = new FormData(); 
   datos.append('servicios',tipoServicios);
   datos.append('fecha_llegada',fechaLlegada);
   datos.append('fecha_salida',fechaSalida);

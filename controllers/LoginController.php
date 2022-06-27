@@ -32,6 +32,8 @@ class LoginController{
             $_SESSION['id'] = $usuario->id; 
             # Guardando nombre y apellido del usuario autenticado en la sesión
             $_SESSION['nombre'] = "{$usuario->nombre} {$usuario->apellido}"; 
+            # Guardando empresa del usuario autenticado en la sesión
+            $_SESSION['empresa'] = $usuario->empresa; 
             # Guardando email del usuario autenticado en la sesión
             $_SESSION['email'] = $usuario->email; 
             # Guardando true en la sesión para indicar que se autenticó un usuario en

@@ -62,6 +62,11 @@ class Usuario extends ActiveRecord{
     
     }
 
+    if (strlen($this->telefono) > 9) {
+      self::$alertas['error'][] = 'El Teléfono debe contener hasta 9 caracteres';
+    
+    }
+
     if (!$this->email) {
       self::$alertas['error'][] = 'El Email es Obligatorio';
     
@@ -79,11 +84,6 @@ class Usuario extends ActiveRecord{
       self::$alertas['error'][] = 'El Rol es Obligatorio';
     
     }
-
-    if (!$this->empresa) {
-      self::$alertas['error'][] = 'La empresa es Obligatoria';
-    }
-
 
     return self::$alertas;
   } 

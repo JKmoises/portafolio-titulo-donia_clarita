@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Model\Habitacion;
 use Model\OrdenCompra;
+use Model\Usuario;
 
 class ApiController{
   
@@ -49,5 +50,16 @@ class ApiController{
 
     // * Retornamos una respuesta
     echo json_encode($habitacionesEstado);
+  }
+  
+  public static function nroUsuariosRol(){
+    $usuariosRol = Usuario::group(
+      "ROL, COUNT(rol) NRO_USUARIOS",
+      "ROL",
+    );
+    // debuguear($usuariosRol);
+
+    // * Retornamos una respuesta
+    echo json_encode($usuariosRol);
   }
 }

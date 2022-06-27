@@ -63,19 +63,21 @@ async function mostrarGraficaEstados() {
 
 async function mostrarGraficaUsuarios() {
   try {
-   /*  const url = 'http://127.0.0.1:3000/api/usuarios';
+    const url = 'http://127.0.0.1:3000/api/usuarios';
     const res = await fetch(url);
-    const json = await res.json(); */
-    // console.log(json);
+    const json = await res.json();
+    // console.log(json);  
 
-
+    const roles = json.map(({ROL}) => ROL);
+    const usuarioPorRol = json.map(({ NRO_USUARIOS }) => NRO_USUARIOS);
+    // console.log(roles, usuarioPorRol);
 
     let datosUsuarios = [
       'graficoUsuarios',
       'bar',
-      ['Admin','Cliente','Empleado','Proveedor'],
+      roles,
       'N° de Usuarios según su Rol',
-      [1,5,3,2],
+      usuarioPorRol,
       [
         '#14192D80',
         '#00808080',

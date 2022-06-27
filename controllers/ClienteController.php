@@ -53,7 +53,7 @@ class ClienteController{
        //? Si no hay errores de validación...
        if (empty($alertas)) { # Si el arreglo $alertas está vacío...
          
-        $cliente->guardar(); # Insertando registro en la BD
+        $cliente->guardar(null); # Insertando registro en la BD
 
         header('Location: /clientes?resultado=1');
       

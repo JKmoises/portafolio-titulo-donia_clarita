@@ -18,6 +18,7 @@ class ReservarController{
     $router->render('reservar/index',[
       'id' => $_SESSION['id'],
       'nombre' => $_SESSION['nombre'],
+      'empresa' => $_SESSION['empresa'],
       'clientes' => $clientes,
     ]);
   }
