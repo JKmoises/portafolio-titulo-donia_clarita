@@ -22,7 +22,7 @@ class Reporte{
 
     $dompdf->loadHtml($this->html); //* Cargando HTML que se mostrará en el PDF
 
-    $dompdf->setPaper('letter'); //* Estableciendo tamaño carta para el PDF
+    // $dompdf->setPaper('letter'); //* Estableciendo tamaño carta para el PDF
     $dompdf->setPaper('A4','landscape'); //* Estableciendo tamaño A4 orientacion 'landscape' para el PDF
 
     $dompdf->render(); //* Renderizando HTML y configuraciones en el PDF a generar

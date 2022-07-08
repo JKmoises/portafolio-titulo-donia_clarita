@@ -18,6 +18,19 @@
 
       <div id="paso-1" class="seccion">
         <h2>Habitaciones</h2>
+
+        <!-- <div class="habitacion-filtros">
+          <button id="filtro-todos" class="boton-volver">Todos</button>
+          <button id="filtro-king" class="boton-volver">King</button>
+          <button id="filtro-triple" class="boton-volver">Triple</button>
+          <button id="filtro-duplex" class="boton-volver">Duplex</button>
+          <button id="filtro-individual" class="boton-volver">Individual</button>
+          <button id="filtro-doble" class="boton-volver">Doble</button>
+          <button id="filtro-moderna" class="boton-volver">Moderna</button>
+          <button id="filtro-clasica" class="boton-volver">Clásica</button>
+          <button id="filtro-estudio" class="boton-volver">Estudio</button>
+        </div> -->
+
         <p class="text-center m-b-10">Elige tus habitaciones a continuación</p>
 
         <div id="servicios" class="listado-servicios">
@@ -45,18 +58,6 @@
             <input id="fecha_salida" type="datetime-local" min="<?php echo date('Y-m-d H:i', strtotime('+1 day')); ?>">
           </div>
 
-          <div class="campo">
-            <label for="empresa">Email Empresa</label>
-
-            <select id="empresa" name="empresa">
-              <option selected value="">-- Seleccione --</option>
-              <?php foreach ($clientes as $cliente) : ?>
-                <option value="<?php echo s($cliente->rut_empresa); ?>">
-                  <?php echo s($cliente->email); ?>
-                </option>
-              <?php endforeach; ?>
-            </select>
-          </div>
 
         </form>
       </div>

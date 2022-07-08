@@ -37,7 +37,7 @@
             <td><?php echo $habitacion->id; ?></td>
             <td><?php echo $habitacion->tipo; ?></td>
             <td><?php echo $habitacion->estado; ?></td>
-            <td>$<?php echo $habitacion->precio; ?></td>
+            <td>$<?php echo number_format($habitacion->precio, 0, ',', '.'); ?></td>
             <td><?php echo $habitacion->tipo_cama; ?></td>
             <td><?php echo $habitacion->descripcion; ?></td>
             <td>

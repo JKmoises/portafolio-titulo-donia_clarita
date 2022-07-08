@@ -21,30 +21,13 @@
       </div>
 
       <div class="campo">
-        <label>¿Eres Cliente?</label>
-
-        <div class="campo-radios">
-          <div class="opcion">
-            <label for="si">Si</label>
-            <input type="radio" id="si" name="eres">
-          </div>
-
-          <div class="opcion">
-            <label for="no">No</label>
-            <input type="radio" id="no" name="eres" checked>
-          </div>
-        </div>
+        <label for="empresa">Empresa</label>
+        <input type="text" id="empresa" name="empresa" placeholder="Tu Empresa" value="<?php echo s($usuario->empresa); ?>">
       </div>
-
-      <div id="container-campo-empresa">
-
-      </div>
-
-      
 
       <div class="campo">
         <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Tu Teléfono" value="">
+        <input type="tel" id="telefono" name="telefono" placeholder="Tu Teléfono" value="<?php echo s($usuario->telefono); ?>">
       </div>
 
       <div class="campo">

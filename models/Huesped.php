@@ -62,10 +62,6 @@ class Huesped extends ActiveRecord{
     
     }
 
-    if (!$this->cliente_id) {
-      self::$alertas['error'][] = 'El cliente es Obligatorio';
-    
-    }
 
     return self::$alertas;
   } 

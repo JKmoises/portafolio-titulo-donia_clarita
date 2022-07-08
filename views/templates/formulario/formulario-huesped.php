@@ -53,16 +53,5 @@
   value="<?php echo s($huesped->telefono); ?>">
 </div>
 
-<div class="campo expand-2">
-  <label>Cliente:</label>
-  <select id="clienteId" name="huesped[cliente_id]">
-    <option selected value="">-- Seleccione --</option>
-    <?php foreach($clientes as $cliente): ?>
-      <option  <?php echo s($huesped->cliente_id === $cliente->rut_empresa) ? 'selected' : ''; ?>
-        value="<?php echo s($cliente->rut_empresa); ?>">
-        <?php echo s($cliente->empresa); ?>
-      </option>
-    <?php endforeach; ?>
-  </select>
-</div>
+
 

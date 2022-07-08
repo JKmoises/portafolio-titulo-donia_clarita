@@ -11,7 +11,7 @@ class HabitacionController{
 
     isAuth(); # Protegiendo esta ruta
 
-    $habitaciones = Habitacion::all('id'); # Guardando todos los registros de las habitaciones
+    $habitaciones = Habitacion::all('id DESC'); # Guardando todos los registros de las habitaciones
     // debuguear($habitaciones);
 
     //* Esto quiere decir que devuelve el valor del name 'resultado' y si no existe devuelve null

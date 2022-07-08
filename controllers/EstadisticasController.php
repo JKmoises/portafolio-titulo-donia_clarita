@@ -18,12 +18,14 @@ class EstadisticasController{
     // debuguear($registrados);
     // debuguear($ganancias);
     // debuguear($clientes);
+
+    $ganancias = number_format($ganancias['ganancias'],0,',','.');
     
     $router->render('/estadisticas/reportes',[
       'nombre' => $_SESSION['nombre'],
       'rol' => $_SESSION['rol'],
       'registrados' => $registrados['registrados'],
-      'ganancias' => $ganancias['ganancias'],
+      'ganancias' => $ganancias,
       'clientes' => $clientes['total_clientes'],
     ]);
   }

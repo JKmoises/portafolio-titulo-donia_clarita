@@ -101,10 +101,32 @@ class Usuario extends ActiveRecord{
     return self::$alertas;
   }
 
+  //? Validando que se ingrese un email en el reseteo del password 
+  public function validarEmail(){
+    if (!$this->email) {
+      self::$alertas['error'][] = 'El email es Obligatorio';
+    }
+
+    return self::$alertas;
+  }
+
+  //? Validando que se ingrese un password y que sea menor a 6 caracteres 
+  public function validarPassword(){
+    if (!$this->password) {
+      self::$alertas['error'][] = 'El password es Obligatorio';
+    }
+
+    if (strlen($this->password) < 6) {
+      self::$alertas['error'][] = 'El Password debe tener al menos 6 caracteres';
+    }
+
+    return self::$alertas;
+  }
+
 
   //? Revisa si el usuario ya existe 
   public function existeUsuario(){
-    $query = "SELECT * FROM " . self::$tabla . " WHERE email = '{$this->email}' LIMIT 1";
+    $query = "SELECT * FROM " . self::$tabla . " WHERE email = '{$this->email}'";
     // debuguear($query); 
 
     $resultado = self::$db->prepare($query); # Preparando query

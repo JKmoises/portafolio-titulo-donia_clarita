@@ -10,9 +10,9 @@ class VentasController{
   public static function listar(Router $router){
     session_start();
 
-    isAuth(); # Protegiendo esta ruta
+    isAuth(); # Protegiendo esta rutax
 
-    $ventas = OrdenCompra::all('fecha_llegada'); # Guardando todos los registros de las ventas
+    $ventas = OrdenCompra::all('id DESC'); # Guardando todos los registros de las ventas
     // debuguear($ventas);
 
 

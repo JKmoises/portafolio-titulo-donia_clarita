@@ -4,7 +4,6 @@ const pasoFinal = 3;
 
 //* Objeto de plantilla en donde se guardará la info seleccionada por el usuario
 const reserva = {
-  id: '',
   nombre: '',
   fechaLlegada: '',
   fechaSalida: '',
@@ -26,17 +25,17 @@ function iniciarApp(){
 
   consultaAPI(); //* Consulta la API para mostrar todos los servicios
   
-  idCliente(); //* Añade el id del cliente del input al objeto 'reserva'
+  // idCliente(); //* Añade el id del cliente del input al objeto 'reserva'
   nombreCliente(); //* Añade el nombre del cliente del input al objeto 'reserva'
   seleccionarFechaLlegada(); //* Añade la fecha de Llegada de la reserva del input al objeto 'reserva'
   seleccionarFechaSalida(); //* Aña la  la fecha de salida de la reserva del input al objeto 'reserva'
 
   mostrarResumen(); //* Muestra el resumen de la reserva
 
-
 } 
 
 // TODO: Funcionalidades de Reservas de Cliente
+
 function mostrarSeccion(){
   //* Ocultar las secciones que no corresponden a su respectivo tab
   const seccionAnterior = document.querySelector('.mostrar');
@@ -50,17 +49,17 @@ function mostrarSeccion(){
   seccion.classList.add('mostrar');
   
    //* Ocultar los tabs que no corresponden a su respectiva seccion
-  const tabAnterior = document.querySelector('.actual');
-  tabAnterior.classList.remove('actual');
-
-  //* Resalta el tab actual
-  const tab = document.querySelector(`[data-paso="${paso}"]`);
-  tab.classList.add('actual');
-
-
-}
-
-function tabs(){
+   const tabAnterior = document.querySelector('.actual');
+   tabAnterior.classList.remove('actual');
+   
+   //* Resalta el tab actual
+   const tab = document.querySelector(`[data-paso="${paso}"]`);
+   tab.classList.add('actual');
+   
+   
+  }
+  
+  function tabs(){
   const botones = document.querySelectorAll('.tabs button'); //* todos los <button> de la navegacion
 
   botones.forEach(boton => {
@@ -128,14 +127,78 @@ async function consultaAPI(){
     // console.log(servicios);
 
     mostrarServicios(servicios);
+
+    // filtrarHabitacion(servicios);
   } catch (error) {
     console.log(error);
   }
 }
 
+
+function filtrarHabitacion(habitaciones) {
+  console.log(habitaciones);
+  let filtro = [];
+
+  const $filtrosHabitaciones = document.querySelector('.habitacion-filtros');
+
+  $filtrosHabitaciones.addEventListener('click', e => {
+
+    if (e.target.matches('#filtro-todos')) {
+      mostrarServicios(habitaciones);
+    }
+
+    if (e.target.matches('#filtro-king')) {
+      filtro = habitaciones.filter(habitacion =>habitacion.tipo === 'King');
+    }
+
+    if (e.target.matches('#filtro-triple')) {
+      filtro = habitaciones.filter(habitacion => habitacion.tipo === 'Triple');
+      mostrarServicios(filtro);
+    }
+
+    if (e.target.matches('#filtro-duplex')) {
+      filtro = habitaciones.filter(habitacion => habitacion.tipo === 'Duplex');
+      mostrarServicios(filtro);
+      
+    }
+
+    if (e.target.matches('#filtro-individual')) {
+      filtro = habitaciones.filter(habitacion => habitacion.tipo === 'Individual');
+      mostrarServicios(filtro);
+    }
+
+    if (e.target.matches('#filtro-doble')) {
+      filtro = habitaciones.filter(habitacion => habitacion.tipo === 'Doble');
+      mostrarServicios(filtro);
+    }
+
+    if (e.target.matches('#filtro-moderna')) {
+      filtro = habitaciones.filter(habitacion => habitacion.tipo === 'Moderna');
+      mostrarServicios(filtro);
+    }
+
+    if (e.target.matches('#filtro-clasica')) {
+      filtro = habitaciones.filter(habitacion => habitacion.tipo === 'Clasica');
+      mostrarServicios(filtro);
+    }
+
+    if (e.target.matches('#filtro-estudio')) {
+      filtro = habitaciones.filter(habitacion => habitacion.tipo === 'Estudio');
+      mostrarServicios(filtro);
+    }
+
+  });
+}
+
 function mostrarServicios(servicios) {
+  const $habitaciones = document.querySelector('#servicios');
+  limpiarHTML($habitaciones);
+
   servicios.forEach(servicio => {
     const {id, tipo, precio, descripcion, tipo_cama } = servicio;
+
+    //* Formatea un número a peso dependiendo del pais 
+    const precioFormat = new Intl.NumberFormat().format(precio);
 
     const nombreServicio = document.createElement('p');
     nombreServicio.classList.add('nombre-servicio','third-text-color');
@@ -143,7 +206,7 @@ function mostrarServicios(servicios) {
 
     const precioServicio = document.createElement('p');
     precioServicio.classList.add('precio-servicio','text-left');
-    precioServicio.textContent = `$${precio}`;
+    precioServicio.textContent = `$${precioFormat}`;
 
     const descripcionServicio = document.createElement('p');
     descripcionServicio.classList.add('descripcion-servicio','text-left');
@@ -199,21 +262,6 @@ function seleccionarServicio(servicio){
 
 }
 
-function idCliente() {
-  const selectEmpresa = document.querySelector('#empresa');
-  // console.log(selectEmpresa);
-
-  selectEmpresa.addEventListener('input', e => {
-    const rut = parseInt(e.target.value);
-    console.log(rut);
-
-    if (!rut) {
-      mostrarAlerta('El email de empresa es obligatorio', 'error', '.formulario');
-    } else {
-      reserva.id = rut;
-    }
-  });
-}
 
 
 function nombreCliente(){
@@ -305,16 +353,21 @@ function mostrarResumen(){
   //? Formatear el div de resumen
   const { nombre, fechaLlegada, fechaSalida, subtotal, total, servicios} = reserva; //* Guardando datos de la reserva
 
+  //? Formatea un número a peso dependiendo del pais 
+  const totalFormat = new Intl.NumberFormat().format(total);
 
   //? Heading para servicios en resumen
   const headingServicios = document.createElement('h3');
   headingServicios.textContent = 'Resumen de Servicios';
   resumen.appendChild(headingServicios);
 
-
+  
   //? Iterando y mostrando los servicios 
   servicios.forEach(servicio => {
     const {precio, tipo, tipo_cama} = servicio;
+    
+    //? Formatea un número a peso dependiendo del pais 
+    const precioFormat = new Intl.NumberFormat().format(precio);
 
     const contenedorServicio = document.createElement('div');
     contenedorServicio.classList.add('contenedor-servicio');
@@ -323,7 +376,7 @@ function mostrarResumen(){
     tipoServicio.innerHTML = /*html*/`<span>Tipo Habitación:</span> ${tipo}`;
     
     const precioServicio = document.createElement('p');
-    precioServicio.innerHTML = /*html*/`<span>Precio:</span> $${precio}`;
+    precioServicio.innerHTML = /*html*/`<span>Precio:</span> $${precioFormat}`;
 
     const camaServicio = document.createElement('p');
     camaServicio.innerHTML = /*html*/`<span>Tipo Cama:</span> ${tipo_cama}`;
@@ -357,7 +410,7 @@ function mostrarResumen(){
   salidaReserva.innerHTML = /*html*/`<span>Fecha Salida:</span> ${fechaSalidaFormateada}`;
 
   const costoReserva = document.createElement('p');
-  costoReserva.innerHTML = /*html*/`<span>Costo Total:</span> $${total}`;
+  costoReserva.innerHTML = /*html*/`<span>Costo Total:</span> $${totalFormat}`;
 
 
   //? Boton para crear una reserva
@@ -407,7 +460,7 @@ async function reservarHabitacion(){
   datos.append('fecha_salida',fechaSalida);
   datos.append('subtotal',subtotal);
   datos.append('total',total);
-  datos.append('cliente_id',id);
+  // datos.append('cliente_id',id);
   // console.log([...datos]);
 
   //* Petición hacia la API
@@ -467,5 +520,11 @@ function  mostrarAlerta(mensaje,tipo, elemento,desaparece = true){
     setTimeout(() => {
       referencia.removeChild(alerta);
     }, 3000);
+  }
+}
+
+function limpiarHTML($elemento) {
+  while ($elemento.firstElementChild) {
+    $elemento.firstElementChild.remove();
   }
 }

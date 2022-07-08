@@ -13,7 +13,6 @@
           <th>Fecha LLegada</th>
           <th>Fecha Salida</th>
           <th>Total</th>
-          <th>Rut Cliente</th>
         </tr>
       </thead>
 
@@ -32,8 +31,7 @@
             </td>
             <td><?php echo $venta->fecha_llegada ?></td>
             <td><?php echo $venta->fecha_salida ?></td>
-            <td>$<?php echo $venta->total ?></td>
-            <td><?php echo $venta->cliente_id ?></td>
+            <td>$<?php echo number_format($venta->total, 0, ',', '.'); ?></td>
           </tr>
         <?php endforeach; ?>
 
